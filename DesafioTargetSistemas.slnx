@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/backend/">
+    <Project Path="src/backend/DesafioTargetSistemas.API/DesafioTargetSistemas.API.csproj" Id="a3bc4cb2-aa63-4893-8527-dbecb0cedfd7" />
+    <Project Path="src/backend/DesafioTargetSistemas.Application/DesafioTargetSistemas.Application.csproj" Id="ca52fe02-59fd-499a-9890-4bc2e08c8b61" />
+    <Project Path="src/backend/DesafioTargetSistemas.Communication/DesafioTargetSistemas.Communication.csproj" Id="71c8bc34-2391-45f2-b2cd-ff0b0b3b2324" />
+    <Project Path="src/backend/DesafioTargetSistemas.Domain/DesafioTargetSistemas.Domain.csproj" Id="2a9288f2-84b1-429c-8784-13f50df12cb8" />
+    <Project Path="src/backend/DesafioTargetSistemas.Exception/DesafioTargetSistemas.Exception.csproj" Id="29c8f74f-c910-4630-b44a-d973d2ae8f8b" />
+    <Project Path="src/backend/DesafioTargetSistemas.Infrastructure/DesafioTargetSistemas.Infrastructure.csproj" Id="9a080864-cd0a-4ee5-9647-9cd5c125b98b" />
+  </Folder>
+  <Folder Name="/src/frontend/" />
+</Solution>
