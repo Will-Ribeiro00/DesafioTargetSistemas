@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.12" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DesafioTargetSistemas.Communication\DesafioTargetSistemas.Communication.csproj" />
     <ProjectReference Include="..\DesafioTargetSistemas.Domain\DesafioTargetSistemas.Domain.csproj" />
     <ProjectReference Include="..\DesafioTargetSistemas.Exception\DesafioTargetSistemas.Exception.csproj" />

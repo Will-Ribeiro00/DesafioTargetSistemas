@@ -1,4 +1,5 @@
 ﻿using DesafioTargetSistemas.Domain.Entities;
+using DesafioTargetSistemas.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -20,6 +21,9 @@ namespace DesafioTargetSistemas.Infrastructure.DataAccess.Mapping
                 .HasColumnName("type")
                 .HasMaxLength(10)
                 .IsUnicode(false)
+                .HasConversion(
+                    v => v == StockMovementType.In ? "IN" : "OUT",
+                    v => v == "IN" ? StockMovementType.In : StockMovementType.Out)
                 .IsRequired();
 
             builder.Property(x => x.Description)

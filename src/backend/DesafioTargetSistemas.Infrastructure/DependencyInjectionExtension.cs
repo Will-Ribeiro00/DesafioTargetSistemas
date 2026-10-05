@@ -1,4 +1,6 @@
-﻿using DesafioTargetSistemas.Infrastructure.DataAccess;
+﻿using DesafioTargetSistemas.Domain.Repositories;
+using DesafioTargetSistemas.Infrastructure.DataAccess;
+using DesafioTargetSistemas.Infrastructure.DataAccess.Repositories;
 using DesafioTargetSistemas.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +13,7 @@ namespace DesafioTargetSistemas.Infrastructure
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             AddDbContext(services, configuration);
+            AddRepositories(services);
         }
 
         private static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
@@ -21,6 +24,12 @@ namespace DesafioTargetSistemas.Infrastructure
             {
                 dbContextOption.UseSqlServer(connectionString);
             });
+        }
+        private static void AddRepositories(IServiceCollection services)
+        {
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IStockMovementRepository, StockMovementRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

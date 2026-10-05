@@ -1,11 +1,13 @@
-﻿namespace DesafioTargetSistemas.Domain.Entities
+﻿using DesafioTargetSistemas.Domain.Enums;
+
+namespace DesafioTargetSistemas.Domain.Entities
 {
     public class StockMovement
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
         public int? SaleId { get; set; }
-        public string Type { get; set; } = string.Empty;
+        public StockMovementType Type { get; set; }
         public string? Description { get; set; } = string.Empty;
         public int Quantity { get; set; }
         public int StockBalance { get; set; }

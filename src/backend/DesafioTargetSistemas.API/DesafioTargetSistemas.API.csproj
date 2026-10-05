@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.17.13" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,10 +16,6 @@
     <ProjectReference Include="..\DesafioTargetSistemas.Communication\DesafioTargetSistemas.Communication.csproj" />
     <ProjectReference Include="..\DesafioTargetSistemas.Exception\DesafioTargetSistemas.Exception.csproj" />
     <ProjectReference Include="..\DesafioTargetSistemas.Infrastructure\DesafioTargetSistemas.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
