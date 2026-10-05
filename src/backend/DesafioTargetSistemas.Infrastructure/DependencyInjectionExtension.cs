@@ -33,6 +33,8 @@ namespace DesafioTargetSistemas.Infrastructure
             services.AddScoped<ISellerRepository, SellerRepository>();
             services.AddScoped<ISaleRepository, SaleRepository>();
 
+            services.AddScoped<IAccountReceivableRepository, AccountReceivableRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
