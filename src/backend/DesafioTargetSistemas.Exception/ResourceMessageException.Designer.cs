@@ -106,6 +106,15 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The start date cannot be after the end date..
+        /// </summary>
+        public static string INVALID_DATE_RANGE {
+            get {
+                return ResourceManager.GetString("INVALID_DATE_RANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The movement type must be IN or OUT..
         /// </summary>
         public static string INVALID_MOVEMENT_TYPE {

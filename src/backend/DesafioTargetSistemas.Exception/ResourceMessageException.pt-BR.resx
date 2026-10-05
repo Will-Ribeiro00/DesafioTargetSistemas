@@ -132,6 +132,9 @@
   <data name="INSUFFICIENT_STOCK" xml:space="preserve">
     <value>Estoque insuficiente para esta saída.</value>
   </data>
+  <data name="INVALID_DATE_RANGE" xml:space="preserve">
+    <value>A data inicial não pode ser posterior à data final.</value>
+  </data>
   <data name="INVALID_MOVEMENT_TYPE" xml:space="preserve">
     <value>O tipo da movimentação deve ser IN ou OUT.</value>
   </data>

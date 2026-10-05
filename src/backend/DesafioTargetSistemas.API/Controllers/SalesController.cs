@@ -12,9 +12,8 @@ namespace DesafioTargetSistemas.API.Controllers
         [ProducesResponseType(typeof(ResponseRegisteredSaleJson), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Register(
-        [FromServices] IRegisterSaleUseCase useCase,
-        [FromBody] RequestRegisterSaleJson request)
+        public async Task<IActionResult> Register([FromServices] IRegisterSaleUseCase useCase,
+                                                  [FromBody] RequestRegisterSaleJson request)
         {
             var response = await useCase.Execute(request);
 

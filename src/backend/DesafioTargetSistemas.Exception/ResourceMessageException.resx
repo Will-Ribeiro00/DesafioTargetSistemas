@@ -132,6 +132,9 @@
   <data name="INSUFFICIENT_STOCK" xml:space="preserve">
     <value>Insufficient stock for this outbound movement.</value>
   </data>
+  <data name="INVALID_DATE_RANGE" xml:space="preserve">
+    <value>The start date cannot be after the end date.</value>
+  </data>
   <data name="INVALID_MOVEMENT_TYPE" xml:space="preserve">
     <value>The movement type must be IN or OUT.</value>
   </data>
