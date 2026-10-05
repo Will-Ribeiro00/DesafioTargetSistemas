@@ -70,6 +70,33 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The due date cannot be in the past..
+        /// </summary>
+        public static string DUE_DATE_IN_THE_PAST {
+            get {
+                return ResourceManager.GetString("DUE_DATE_IN_THE_PAST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The due date exceeds the maximum allowed period..
+        /// </summary>
+        public static string DUE_DATE_TOO_FAR {
+            get {
+                return ResourceManager.GetString("DUE_DATE_TOO_FAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The same product cannot appear more than once in a sale..
+        /// </summary>
+        public static string DUPLICATED_PRODUCTS_IN_SALE {
+            get {
+                return ResourceManager.GetString("DUPLICATED_PRODUCTS_IN_SALE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Insufficient stock for this outbound movement..
         /// </summary>
         public static string INSUFFICIENT_STOCK {
@@ -106,6 +133,15 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The seller id is invalid..
+        /// </summary>
+        public static string INVALID_SELLER_ID {
+            get {
+                return ResourceManager.GetString("INVALID_SELLER_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The product code is required..
         /// </summary>
         public static string PRODUCT_CODE_REQUIRED {
@@ -129,6 +165,24 @@ namespace DesafioTargetSistemas.Exception {
         public static string PRODUCT_NOT_FOUND {
             get {
                 return ResourceManager.GetString("PRODUCT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The sale must have at least one item..
+        /// </summary>
+        public static string SALE_ITEMS_REQUIRED {
+            get {
+                return ResourceManager.GetString("SALE_ITEMS_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Seller not found..
+        /// </summary>
+        public static string SELLER_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("SELLER_NOT_FOUND", resourceCulture);
             }
         }
         

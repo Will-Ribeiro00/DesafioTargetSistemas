@@ -120,6 +120,15 @@
   <data name="DESCRIPTION_TOO_LONG" xml:space="preserve">
     <value>The description exceeds the maximum allowed length.</value>
   </data>
+  <data name="DUE_DATE_IN_THE_PAST" xml:space="preserve">
+    <value>The due date cannot be in the past.</value>
+  </data>
+  <data name="DUE_DATE_TOO_FAR" xml:space="preserve">
+    <value>The due date exceeds the maximum allowed period.</value>
+  </data>
+  <data name="DUPLICATED_PRODUCTS_IN_SALE" xml:space="preserve">
+    <value>The same product cannot appear more than once in a sale.</value>
+  </data>
   <data name="INSUFFICIENT_STOCK" xml:space="preserve">
     <value>Insufficient stock for this outbound movement.</value>
   </data>
@@ -132,6 +141,9 @@
   <data name="INVALID_REQUEST" xml:space="preserve">
     <value>The request is invalid.</value>
   </data>
+  <data name="INVALID_SELLER_ID" xml:space="preserve">
+    <value>The seller id is invalid.</value>
+  </data>
   <data name="PRODUCT_CODE_REQUIRED" xml:space="preserve">
     <value>The product code is required.</value>
   </data>
@@ -140,6 +152,12 @@
   </data>
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>Product not found.</value>
+  </data>
+  <data name="SALE_ITEMS_REQUIRED" xml:space="preserve">
+    <value>The sale must have at least one item.</value>
+  </data>
+  <data name="SELLER_NOT_FOUND" xml:space="preserve">
+    <value>Seller not found.</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error.</value>

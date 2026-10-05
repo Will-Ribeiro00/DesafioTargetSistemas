@@ -29,6 +29,10 @@ namespace DesafioTargetSistemas.Infrastructure
         {
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IStockMovementRepository, StockMovementRepository>();
+
+            services.AddScoped<ISellerRepository, SellerRepository>();
+            services.AddScoped<ISaleRepository, SaleRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

@@ -1,4 +1,5 @@
-﻿using DesafioTargetSistemas.Application.UseCases.StockMovements.Register;
+﻿using DesafioTargetSistemas.Application.UseCases.Sales.Register;
+using DesafioTargetSistemas.Application.UseCases.StockMovements.Register;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DesafioTargetSistemas.Application
@@ -14,6 +15,7 @@ namespace DesafioTargetSistemas.Application
         private static void AddUseCases(IServiceCollection services)
         {
             services.AddScoped<IRegisterStockMovementUseCase, RegisterStockMovementUseCase>();
+            services.AddScoped<IRegisterSaleUseCase, RegisterSaleUseCase>();
         }
     }
 }
