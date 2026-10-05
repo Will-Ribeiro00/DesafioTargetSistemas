@@ -6,5 +6,6 @@ namespace DesafioTargetSistemas.Domain.Repositories
     {
         Task<Product?> GetByCode(string code);
         void Update(Product product);
+        Task<List<Product>> GetAll();
     }
 }

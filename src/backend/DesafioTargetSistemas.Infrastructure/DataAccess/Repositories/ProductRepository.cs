@@ -11,5 +11,6 @@ namespace DesafioTargetSistemas.Infrastructure.DataAccess.Repositories
         public async Task<Product?> GetByCode(string code) => await _dbContext.Products.FirstOrDefaultAsync(p => p.Code == code);
 
         public void Update(Product product) => _dbContext.Products.Update(product);
+        public async Task<List<Product>> GetAll() => await _dbContext.Products.AsNoTracking().OrderBy(p => p.Code).ToListAsync();
     }
 }
