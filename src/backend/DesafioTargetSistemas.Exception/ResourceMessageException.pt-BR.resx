@@ -129,11 +129,20 @@
   <data name="DUPLICATED_PRODUCTS_IN_SALE" xml:space="preserve">
     <value>O mesmo produto não pode aparecer mais de uma vez na venda.</value>
   </data>
+  <data name="EMAIL_REQUIRED" xml:space="preserve">
+    <value>O e-mail é obrigatório.</value>
+  </data>
   <data name="INSUFFICIENT_STOCK" xml:space="preserve">
     <value>Estoque insuficiente para esta saída.</value>
   </data>
   <data name="INVALID_DATE_RANGE" xml:space="preserve">
     <value>A data inicial não pode ser posterior à data final.</value>
+  </data>
+  <data name="INVALID_EMAIL_FORMAT" xml:space="preserve">
+    <value>O formato do e-mail é inválido.</value>
+  </data>
+  <data name="INVALID_LOGIN" xml:space="preserve">
+    <value>E-mail e/ou senha inválidos.</value>
   </data>
   <data name="INVALID_MOVEMENT_TYPE" xml:space="preserve">
     <value>O tipo da movimentação deve ser IN ou OUT.</value>
@@ -146,6 +155,12 @@
   </data>
   <data name="INVALID_SELLER_ID" xml:space="preserve">
     <value>O id do vendedor é inválido.</value>
+  </data>
+  <data name="INVALID_TOKEN" xml:space="preserve">
+    <value>O token de acesso é inválido.</value>
+  </data>
+  <data name="PASSWORD_REQUIRED" xml:space="preserve">
+    <value>A senha é obrigatória.</value>
   </data>
   <data name="PRODUCT_CODE_REQUIRED" xml:space="preserve">
     <value>O código do produto é obrigatório.</value>
@@ -162,7 +177,16 @@
   <data name="SELLER_NOT_FOUND" xml:space="preserve">
     <value>Vendedor não encontrado.</value>
   </data>
+  <data name="TOKEN_EXPIRED" xml:space="preserve">
+    <value>O token de acesso expirou.</value>
+  </data>
+  <data name="TOKEN_WITHOUT_USER" xml:space="preserve">
+    <value>O token de acesso não identifica um usuário.</value>
+  </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
+  </data>
+  <data name="WITHOUT_TOKEN" xml:space="preserve">
+    <value>Nenhum token de acesso foi informado.</value>
   </data>
 </root>

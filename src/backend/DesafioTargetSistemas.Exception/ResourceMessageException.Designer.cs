@@ -97,6 +97,15 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The email is required..
+        /// </summary>
+        public static string EMAIL_REQUIRED {
+            get {
+                return ResourceManager.GetString("EMAIL_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Insufficient stock for this outbound movement..
         /// </summary>
         public static string INSUFFICIENT_STOCK {
@@ -111,6 +120,24 @@ namespace DesafioTargetSistemas.Exception {
         public static string INVALID_DATE_RANGE {
             get {
                 return ResourceManager.GetString("INVALID_DATE_RANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The email format is invalid..
+        /// </summary>
+        public static string INVALID_EMAIL_FORMAT {
+            get {
+                return ResourceManager.GetString("INVALID_EMAIL_FORMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid email and/or password..
+        /// </summary>
+        public static string INVALID_LOGIN {
+            get {
+                return ResourceManager.GetString("INVALID_LOGIN", resourceCulture);
             }
         }
         
@@ -147,6 +174,24 @@ namespace DesafioTargetSistemas.Exception {
         public static string INVALID_SELLER_ID {
             get {
                 return ResourceManager.GetString("INVALID_SELLER_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The access token is invalid..
+        /// </summary>
+        public static string INVALID_TOKEN {
+            get {
+                return ResourceManager.GetString("INVALID_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password is required..
+        /// </summary>
+        public static string PASSWORD_REQUIRED {
+            get {
+                return ResourceManager.GetString("PASSWORD_REQUIRED", resourceCulture);
             }
         }
         
@@ -196,11 +241,38 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The access token has expired..
+        /// </summary>
+        public static string TOKEN_EXPIRED {
+            get {
+                return ResourceManager.GetString("TOKEN_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The access token does not identify a user..
+        /// </summary>
+        public static string TOKEN_WITHOUT_USER {
+            get {
+                return ResourceManager.GetString("TOKEN_WITHOUT_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Unknown error..
         /// </summary>
         public static string UNKNOWN_ERROR {
             get {
                 return ResourceManager.GetString("UNKNOWN_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a No access token was provided..
+        /// </summary>
+        public static string WITHOUT_TOKEN {
+            get {
+                return ResourceManager.GetString("WITHOUT_TOKEN", resourceCulture);
             }
         }
     }

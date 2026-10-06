@@ -1,7 +1,11 @@
 ﻿using DesafioTargetSistemas.Domain.Repositories;
+using DesafioTargetSistemas.Domain.Security.Cryptography;
+using DesafioTargetSistemas.Domain.Security.Tokens;
 using DesafioTargetSistemas.Infrastructure.DataAccess;
 using DesafioTargetSistemas.Infrastructure.DataAccess.Repositories;
 using DesafioTargetSistemas.Infrastructure.Extensions;
+using DesafioTargetSistemas.Infrastructure.Security.Cryptography;
+using DesafioTargetSistemas.Infrastructure.Security.Tokens;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +18,8 @@ namespace DesafioTargetSistemas.Infrastructure
         {
             AddDbContext(services, configuration);
             AddRepositories(services);
+            AddPasswordEncripter(services);
+            AddTokens(services, configuration);
         }
 
         private static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
@@ -35,7 +41,21 @@ namespace DesafioTargetSistemas.Infrastructure
 
             services.AddScoped<IAccountReceivableRepository, AccountReceivableRepository>();
 
+            services.AddScoped<IAppUserRepository, AppUserRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
+        private static void AddPasswordEncripter(IServiceCollection services)
+        {
+            services.AddScoped<IPasswordEncripter, BCryptPasswordEncripter>();
+        }
+        private static void AddTokens(IServiceCollection services, IConfiguration configuration)
+        {
+            var expirationTimeMinutes = configuration.JwtExpirationTimeMinutes();
+            var signingKey = configuration.JwtSigningKey();
+
+            services.AddScoped<IAccessTokenGenerator>(_ => new JwtTokenGenerator(expirationTimeMinutes, signingKey));
+            services.AddScoped<IAccessTokenValidator>(_ => new JwtTokenValidator(signingKey));
         }
     }
 }

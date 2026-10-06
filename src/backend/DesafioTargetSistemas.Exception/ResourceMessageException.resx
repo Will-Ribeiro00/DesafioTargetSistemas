@@ -129,11 +129,20 @@
   <data name="DUPLICATED_PRODUCTS_IN_SALE" xml:space="preserve">
     <value>The same product cannot appear more than once in a sale.</value>
   </data>
+  <data name="EMAIL_REQUIRED" xml:space="preserve">
+    <value>The email is required.</value>
+  </data>
   <data name="INSUFFICIENT_STOCK" xml:space="preserve">
     <value>Insufficient stock for this outbound movement.</value>
   </data>
   <data name="INVALID_DATE_RANGE" xml:space="preserve">
     <value>The start date cannot be after the end date.</value>
+  </data>
+  <data name="INVALID_EMAIL_FORMAT" xml:space="preserve">
+    <value>The email format is invalid.</value>
+  </data>
+  <data name="INVALID_LOGIN" xml:space="preserve">
+    <value>Invalid email and/or password.</value>
   </data>
   <data name="INVALID_MOVEMENT_TYPE" xml:space="preserve">
     <value>The movement type must be IN or OUT.</value>
@@ -146,6 +155,12 @@
   </data>
   <data name="INVALID_SELLER_ID" xml:space="preserve">
     <value>The seller id is invalid.</value>
+  </data>
+  <data name="INVALID_TOKEN" xml:space="preserve">
+    <value>The access token is invalid.</value>
+  </data>
+  <data name="PASSWORD_REQUIRED" xml:space="preserve">
+    <value>The password is required.</value>
   </data>
   <data name="PRODUCT_CODE_REQUIRED" xml:space="preserve">
     <value>The product code is required.</value>
@@ -162,7 +177,16 @@
   <data name="SELLER_NOT_FOUND" xml:space="preserve">
     <value>Seller not found.</value>
   </data>
+  <data name="TOKEN_EXPIRED" xml:space="preserve">
+    <value>The access token has expired.</value>
+  </data>
+  <data name="TOKEN_WITHOUT_USER" xml:space="preserve">
+    <value>The access token does not identify a user.</value>
+  </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error.</value>
+  </data>
+  <data name="WITHOUT_TOKEN" xml:space="preserve">
+    <value>No access token was provided.</value>
   </data>
 </root>

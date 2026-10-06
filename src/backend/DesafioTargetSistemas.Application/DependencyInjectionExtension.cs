@@ -1,4 +1,5 @@
 ﻿using DesafioTargetSistemas.Application.UseCases.AccountsReceivable.GetOpen;
+using DesafioTargetSistemas.Application.UseCases.Login.DoLogin;
 using DesafioTargetSistemas.Application.UseCases.Products.GetAll;
 using DesafioTargetSistemas.Application.UseCases.Sales.GetAll;
 using DesafioTargetSistemas.Application.UseCases.Sales.Register;
@@ -24,6 +25,7 @@ namespace DesafioTargetSistemas.Application
             services.AddScoped<IGetSalesUseCase, GetSalesUseCase>();
             services.AddScoped<IGetSellerCommissionsUseCase, GetSellerCommissionsUseCase>();
             services.AddScoped<IGetAccountsReceivableUseCase, GetAccountsReceivableUseCase>();
+            services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         }
     }
 }

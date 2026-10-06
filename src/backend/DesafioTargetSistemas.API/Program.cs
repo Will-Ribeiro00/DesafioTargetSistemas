@@ -4,8 +4,12 @@ using DesafioTargetSistemas.Application;
 using DesafioTargetSistemas.Communication.Responses;
 using DesafioTargetSistemas.Exception;
 using DesafioTargetSistemas.Infrastructure;
+using DesafioTargetSistemas.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
+using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +45,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
