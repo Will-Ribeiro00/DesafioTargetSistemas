@@ -3,6 +3,7 @@ using DesafioTargetSistemas.Application.UseCases.Login.DoLogin;
 using DesafioTargetSistemas.Application.UseCases.Products.GetAll;
 using DesafioTargetSistemas.Application.UseCases.Sales.GetAll;
 using DesafioTargetSistemas.Application.UseCases.Sales.Register;
+using DesafioTargetSistemas.Application.UseCases.Sellers.GetAll;
 using DesafioTargetSistemas.Application.UseCases.Sellers.GetCommissions;
 using DesafioTargetSistemas.Application.UseCases.StockMovements.Register;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,7 @@ namespace DesafioTargetSistemas.Application
             services.AddScoped<IGetProductsUseCase, GetProductsUseCase>();
             services.AddScoped<IGetSalesUseCase, GetSalesUseCase>();
             services.AddScoped<IGetSellerCommissionsUseCase, GetSellerCommissionsUseCase>();
+            services.AddScoped<IGetSellersUseCase, GetSellersUseCase>();
             services.AddScoped<IGetAccountsReceivableUseCase, GetAccountsReceivableUseCase>();
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         }
