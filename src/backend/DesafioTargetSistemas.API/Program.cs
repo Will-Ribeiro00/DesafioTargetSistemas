@@ -35,6 +35,11 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 builder.Services.Configure<CultureSettings>(
     builder.Configuration.GetSection("Settings:Localization"));
 
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
+    policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500")
+          .AllowAnyHeader()
+          .AllowAnyMethod()));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,6 +50,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthentication();
 
