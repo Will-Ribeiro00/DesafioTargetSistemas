@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Estoque</title>
+  
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/estoque.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Menu principal"></nav>
+    
+    <main class="content">
+      <h1>Estoque</h1>
+      
+      <div id="alert" hidden></div>
+      
+      <div class="split">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Descrição</th>
+                <th scope="col" class="num">Preço</th>
+                <th scope="col" class="num">Estoque atual</th>
+              </tr>
+            </thead>
+            <tbody id="products-body">
+              <tr><td colspan="4" class="empty">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <form class="panel" id="movement-form" novalidate>
+          <h2>Registrar movimentação</h2>
+          
+          <div class="field">
+            <label for="code">Código do produto</label>
+            
+            <input id="code" type="text" list="products-list" placeholder="Ex.: 101" autocomplete="off">
+            
+            <datalist id="products-list"></datalist>
+          </div>
+          
+          <div class="field">
+            <label for="type">Tipo</label>
+            
+            <select id="type">
+              <option value="IN">Entrada</option>
+              
+              <option value="OUT">Saída</option>
+            </select>
+          </div>
+          
+          <div class="field">
+            <label for="quantity">Quantidade</label>
+           
+            <input id="quantity" type="number" min="1" placeholder="0">
+          </div>
+          
+          <div class="field">
+            <label for="description">Descrição (opcional)</label>
+            
+            <input id="description" type="text" placeholder="Ex.: Compra de fornecedor">
+          </div>
+          
+          <button type="submit" class="btn btn-primary" id="movement-button">Registrar</button>
+        </form>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../js/pages/estoque.js"></script>
+</body>
+</html>

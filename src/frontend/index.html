@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Entrar</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <div>
+      <div class="brand">Sistema Comercial</div>
+      <h1>Entrar</h1>
+    </div>
+
+    <div id="alert" hidden></div>
+
+    <form id="login-form" class="form" style="gap:20px">
+      <div class="field">
+        <label for="email">E-mail</label>
+        
+        <input id="email" type="email" placeholder="seu@email.com" autocomplete="username" required>
+      </div>
+
+      <div class="field">
+        <label for="password">Senha</label>
+        
+        <input id="password" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="login-button">Entrar</button>
+    </form>
+  </main>
+  
+  <script type="module" src="js/pages/login.js"></script>
+</body>
+</html>

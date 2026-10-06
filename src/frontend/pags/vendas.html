@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Vendas</title>
+  
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/vendas.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Menu principal"></nav>
+    
+    <main class="content">
+      <div class="page-header">
+        <h1>Vendas</h1>
+        
+        <a class="btn btn-primary" href="nova-venda.html">Nova venda</a>
+      </div>
+      
+      <div id="alert" hidden></div>
+      
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Nº</th>
+              <th scope="col">Data</th>
+              <th scope="col">Vendedor</th>
+              <th scope="col" class="num">Total</th>
+              <th scope="col" class="num">Comissão (%)</th>
+              <th scope="col" class="num">Comissão (R$)</th>
+            </tr>
+          </thead>
+          <tbody id="sales-body">
+            <tr><td colspan="6" class="empty">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../js/pages/vendas.js"></script>
+</body>
+</html>

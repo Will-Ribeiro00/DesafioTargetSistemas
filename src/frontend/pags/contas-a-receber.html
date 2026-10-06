@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Contas a receber</title>
+  
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  
+  <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/contas-a-receber.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Menu principal"></nav>
+    
+    <main class="content">
+      <div>
+        <h1>Contas a receber</h1>
+        
+        <p class="subtitle">
+          Em aberto, das mais antigas para as mais recentes. Juros de 2,5% ao dia sobre o valor, a partir do vencimento.
+        </p>
+      </div>
+      
+      <div id="alert" hidden></div>
+      
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Venda</th>
+              <th scope="col">Vencimento</th>
+              <th scope="col" class="num">Valor</th>
+              <th scope="col" class="num">Dias de atraso</th>
+              <th scope="col" class="num">Juros</th>
+              <th scope="col" class="num">Total a receber</th>
+              <th scope="col">Situação</th>
+            </tr>
+          </thead>
+          <tbody id="receivables-body">
+            <tr><td colspan="7" class="empty">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../js/pages/contas-a-receber.js"></script>
+</body>
+</html>

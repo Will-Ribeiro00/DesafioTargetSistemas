@@ -1,0 +1,161 @@
+.btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--input-line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover { 
+    background: var(--panel); 
+}
+
+.btn-primary { 
+    color: #fff; 
+    font-weight: 600; 
+    background: var(--accent); 
+    border-color: var(--accent); 
+}
+
+.btn-primary:hover { 
+    background: var(--accent-dark); 
+    border-color: var(--accent-dark); 
+}
+
+.btn:disabled { 
+    opacity: 0.6; 
+    cursor: not-allowed; 
+}
+
+.btn-link {
+    min-height: 44px; 
+    padding: 0 12px; 
+    font: inherit; 
+    font-size: 14px;
+    color: var(--err-ink); 
+    background: none; 
+    border: 0; 
+    cursor: pointer;
+}
+
+.btn-text { 
+    color: var(--ink); 
+    text-decoration: underline; 
+    border: 0; 
+    background: none; 
+    font-weight: 400; 
+}
+
+.field { 
+    display: flex; 
+    flex-direction: 
+    column; gap: 6px; 
+}
+
+.field label { 
+    font-size: 14px; 
+    font-weight: 500; 
+}
+
+.field input, .field select, td input, td select {
+    height: 44px;
+    padding: 0 12px;
+    font: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--input-line);
+    border-radius: var(--radius);
+}
+
+.hint { 
+    font-size: 13px; 
+    color: var(--muted); 
+}
+
+.form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 24px; 
+}
+
+.alert { 
+    padding: 12px; 
+    font-size: 14px; 
+    border: 1.5px solid; 
+    border-radius: var(--radius); 
+}
+
+.alert ul { 
+    margin: 0; 
+    padding-left: 18px; 
+}
+
+.alert-error { 
+    color: var(--err-ink); 
+    background: var(--err-bg); 
+    border-color: var(--err-line); 
+}
+
+.alert-success { 
+    color: var(--ok-ink); 
+    background: var(--ok-bg); 
+    border-color: var(--ok-line); 
+}
+
+.table-wrap { 
+    overflow-x: auto; 
+    border: 1.5px solid var(--line); 
+    border-radius: 8px; 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+th {
+    padding: 12px 16px; 
+    text-align: left; 
+    white-space: nowrap;
+    font-size: 13px; 
+    font-weight: 600; 
+    color: var(--head);
+    background: var(--panel); 
+    border-bottom: 1.5px solid var(--line);
+}
+
+td { 
+    padding: 12px 16px; 
+    border-bottom: 1px solid var(--row-line); 
+}
+
+tbody tr:last-child td { 
+    border-bottom: 0; 
+}
+
+.num { 
+    text-align: right; 
+    font-variant-numeric: tabular-nums; 
+}
+
+tfoot td { 
+    font-weight: 600; 
+    background: var(--panel); 
+    border-top: 1.5px solid var(--line); 
+    border-bottom: 0; 
+}
+
+.empty { 
+    padding: 32px; 
+    text-align: center; 
+    color: var(--muted); 
+}

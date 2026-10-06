@@ -1,0 +1,28 @@
+.split {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.split .table-wrap {
+    flex: 999 1 480px;
+    min-width: 0;
+}
+
+.panel {
+    flex: 1 1 300px;
+    min-width: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--panel);
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+}
+
+.panel .field input, 
+.panel .field select {
+    width: 100%;
+}

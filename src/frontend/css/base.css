@@ -1,0 +1,48 @@
+/* Base: cores (variáveis), reset, tipografia e acessibilidade.
+   Carregado em TODAS as páginas. */
+
+:root {
+  --ink: #1f2328;
+  --muted: #5b6470;
+  --head: #4a525d;
+  --line: #b8bec6;
+  --row-line: #dde0e4;
+  --panel: #f3f4f6;
+  --accent: #2f5d9e;
+  --accent-dark: #1f4378;
+  --active: #dfe6f1;
+  --input-line: #8b939e;
+  --err-bg: #fdecea;
+  --err-line: #b3392b;
+  --err-ink: #7a1f14;
+  --ok-bg: #e8f3ec;
+  --ok-line: #2d6a45;
+  --ok-ink: #1b4a2e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink);
+  background: #fff;
+}
+
+h1 { margin: 0; font-size: 28px; font-weight: 600; }
+
+h2 { margin: 0; font-size: 18px; font-weight: 600; }
+
+a { color: var(--accent); }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}

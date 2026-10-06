@@ -1,0 +1,30 @@
+.login-page {
+    min-height: 100vh; 
+    padding: 32px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: var(--panel);
+}
+
+.login-card {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 32px;
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px;
+    background: #fff; 
+    border: 1.5px solid var(--line); 
+    border-radius: 8px;
+}
+
+.login-card .field input { 
+    width: 100%; 
+}
+
+.login-card .brand { 
+    font-size: 14px; 
+    font-weight: 600; 
+    color: var(--muted); 
+}

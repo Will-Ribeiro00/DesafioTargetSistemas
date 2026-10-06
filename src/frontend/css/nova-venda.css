@@ -1,0 +1,53 @@
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    max-width: 720px;
+}
+
+.items-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.items-table td:first-child {
+    min-width: 260px;
+}
+
+.items-table td select {
+    width: 100%;
+}
+
+.items-table td input {
+    width: 100px;
+}
+
+.form-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1.5px solid var(--line);
+}
+
+.total {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    color: var(--muted);
+}
+
+.total strong {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}

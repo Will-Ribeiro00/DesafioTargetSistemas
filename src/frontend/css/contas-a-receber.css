@@ -1,0 +1,26 @@
+.subtitle {
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.pill {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1.5px solid;
+    border-radius: 999px;
+}
+
+.pill-late {
+    color: var(--err-ink);
+    background: var(--err-bg);
+    border-color: var(--err-line);
+}
+
+.pill-ok {
+    color: var(--ok-ink);
+    background: var(--ok-bg);
+    border-color: var(--ok-line);
+}

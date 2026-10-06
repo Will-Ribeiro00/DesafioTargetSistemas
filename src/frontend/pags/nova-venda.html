@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Nova venda</title>
+  
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/nova-venda.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Menu principal"></nav>
+    
+    <main class="content">
+      <h1>Nova venda</h1>
+      
+      <div id="alert" hidden></div>
+      
+      <form id="sale-form" class="form" novalidate>
+        <div class="form-grid">
+          <div class="field" id="seller-field">
+            <label for="seller">Vendedor</label>
+            
+            <select id="seller"><option value="">Carregando...</option></select>
+          </div>
+          
+          <div class="field">
+            <label for="due-date">Vencimento</label>
+            
+            <input id="due-date" type="date">
+            
+            <span class="hint">De hoje até 30 dias à frente.</span>
+          </div>
+        </div>
+
+        <section class="items-section" aria-labelledby="items-title">
+          <h2 id="items-title">Itens</h2>
+          
+          <div class="table-wrap">
+            <table class="items-table">
+              <thead>
+                <tr>
+                  <th scope="col">Produto</th>
+                  <th scope="col">Quantidade</th>
+                  <th scope="col" class="num">Preço unit.</th>
+                  <th scope="col" class="num">Subtotal</th>
+                  <th scope="col"><span class="sr-only">Ações</span></th>
+                </tr>
+              </thead>
+              <tbody id="items-body"></tbody>
+            </table>
+          </div>
+          
+          <div><button type="button" class="btn" id="add-item">+ Adicionar item</button></div>
+        </section>
+
+        <div class="form-footer">
+          <div class="total">Total da venda <strong id="total">R$ 0,00</strong></div>
+          <div class="actions">
+            <a class="btn" href="vendas.html">Cancelar</a>
+            
+            <button type="submit" class="btn btn-primary" id="submit-button">Registrar venda</button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  
+  <script type="module" src="../js/pages/nova-venda.js"></script>
+</body>
+</html>

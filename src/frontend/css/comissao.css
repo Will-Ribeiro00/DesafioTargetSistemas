@@ -1,0 +1,10 @@
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.filters .field {
+    width: 200px;
+}

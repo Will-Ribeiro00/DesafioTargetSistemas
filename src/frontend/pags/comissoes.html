@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Comissões</title>
+  
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/comissao.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Menu principal"></nav>
+    
+    <main class="content">
+      <h1>Comissões por vendedor</h1>
+      
+      <div id="alert" hidden></div>
+      
+      <form class="filters" id="filter-form">
+        <div class="field">
+          <label for="from">De</label>
+          
+          <input id="from" type="date">
+        </div>
+        
+        <div class="field">
+          <label for="to">Até</label>
+          
+          <input id="to" type="date">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+        
+        <button type="button" class="btn btn-text" id="clear-filter">Limpar filtro</button>
+      </form>
+      
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Vendedor</th>
+              <th scope="col" class="num">Nº de vendas</th>
+              <th scope="col" class="num">Total vendido</th>
+              <th scope="col" class="num">Comissão total</th>
+            </tr>
+          </thead>
+          <tbody id="commissions-body">
+            <tr><td colspan="4" class="empty">Carregando...</td></tr>
+          </tbody>
+          <tfoot id="commissions-foot" hidden></tfoot>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="../js/pages/comissoes.js"></script>
+</body>
+</html>
