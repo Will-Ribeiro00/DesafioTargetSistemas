@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.google.com"><strong>Acessar o sistema</strong></a> ·
+  <a href="https://will-ribeiro00.github.io/DesafioTargetSistemas/"><strong>Acessar o sistema</strong></a> ·
   <a href="#telas-wireframe">Ver as telas</a> ·
   <a href="#como-rodar-localmente">Rodar localmente</a> ·
   <a href="especificacoes/">Especificações</a>
@@ -28,7 +28,7 @@
 
 | | Endereço |
 |---|---|
-| **Front-end** (GitHub Pages) | https://www.google.com |
+| **Front-end** (GitHub Pages) | https://will-ribeiro00.github.io/DesafioTargetSistemas/ |
 | **API** (Azure App Service) | https://desafio-target-sistemas-gqhzb5ggc2dccwa5.centralus-01.azurewebsites.net/api/hml |
 
 As credenciais de acesso foram enviadas junto com o link deste repositório.
