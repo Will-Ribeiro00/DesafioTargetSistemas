@@ -36,7 +36,9 @@ builder.Services.Configure<CultureSettings>(
     builder.Configuration.GetSection("Settings:Localization"));
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-    policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500")
+    policy.WithOrigins("http://127.0.0.1:5500",
+                       "http://localhost:5500",
+                       "https://will-ribeiro00.github.io")
           .AllowAnyHeader()
           .AllowAnyMethod()));
 
