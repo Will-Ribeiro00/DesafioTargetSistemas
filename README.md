@@ -24,7 +24,7 @@
 
 ---
 
-## Em produção
+## Sistema publicado
 
 | | Endereço |
 |---|---|
