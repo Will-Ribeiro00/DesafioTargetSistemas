@@ -90,7 +90,7 @@ DesafioTargetSistemas/
 ## Modelo de dados
 
 <p align="center">
-  <a href="especificacoes/banco/modelo_logico.pdf">
+  <a href="especificacoes/Banco/modelo_logico.pdf">
     <img src="especificacoes/Banco/modelo_logico.png" alt="Modelo lógico do banco de dados" width="900">
   </a>
 </p>
