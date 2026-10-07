@@ -33,6 +33,8 @@
 
 As credenciais de acesso foram enviadas junto com o link deste repositório.
 
+> **Primeiro acesso pode falhar.** A API e o banco estão em planos gratuitos do Azure, que pausam depois de um período sem uso. A primeira requisição os "acorda", mas pode demorar ou falhar com erro. Se isso acontecer, aguarde cerca de um minuto e tente de novo.
+
 ---
 
 ## Sumário
