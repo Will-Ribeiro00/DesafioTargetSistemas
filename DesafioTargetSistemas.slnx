@@ -9,4 +9,10 @@
     <Project Path="src/backend/DesafioTargetSistemas.Infrastructure/DesafioTargetSistemas.Infrastructure.csproj" Id="9a080864-cd0a-4ee5-9647-9cd5c125b98b" />
   </Folder>
   <Folder Name="/src/frontend/" />
+  <Folder Name="/src/tests/">
+    <Project Path="src/tests/CommonTestUtilities/CommonTestUtilities.csproj" Id="a5577238-918e-4c1c-88ea-844ab7d46756" />
+    <Project Path="src/tests/UseCase.Test/UseCase.Test.csproj" Id="b9a170f6-68d0-44de-a889-6bdd1540dcd8" />
+    <Project Path="src/tests/Validator.Test/Validator.Test.csproj" Id="9a0ddefb-5693-44fd-9da6-24e2bc5ae2b6" />
+    <Project Path="src/tests/WebApi.Test/WebApi.Test.csproj" Id="9dc28672-b69c-4332-afb6-6f3d861c6e53" />
+  </Folder>
 </Solution>

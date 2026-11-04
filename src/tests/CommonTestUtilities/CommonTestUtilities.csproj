@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="35.6.5" />
+    <PackageReference Include="Moq" Version="4.21.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\backend\DesafioTargetSistemas.Application\DesafioTargetSistemas.Application.csproj" />
+    <ProjectReference Include="..\..\backend\DesafioTargetSistemas.Communication\DesafioTargetSistemas.Communication.csproj" />
+    <ProjectReference Include="..\..\backend\DesafioTargetSistemas.Infrastructure\DesafioTargetSistemas.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
