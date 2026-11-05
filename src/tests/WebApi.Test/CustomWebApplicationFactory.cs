@@ -18,6 +18,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     private Seller _seller = default!;
     private AppUser _user = default!;
     private string _password = string.Empty;
+    private List<Sale> _sales = [];
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -48,6 +49,10 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     public string GetUserPassword() => _password;
 
+    public string GetSellerName() => _seller.Name;
+
+    public IReadOnlyList<Sale> GetSales() => _sales;
+
     public int GetProductCurrentStock()
     {
         using var scope = Services.CreateScope();
@@ -69,12 +74,19 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         _product = ProductBuilder.Build();
         _seller = SellerBuilder.Build();
 
+        _sales =
+        [
+            SaleBuilder.Build(_seller, new DateTime(2026, 9, 15, 10, 0, 0, DateTimeKind.Utc), 1000.00m),
+            SaleBuilder.Build(_seller, new DateTime(2026, 10, 20, 15, 30, 0, DateTimeKind.Utc), 300.00m)
+        ];
+
         _password = "SenhaDeTeste@123";
         _user = AppUserBuilder.Build();
         _user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(_password);
 
         context.Products.Add(_product);
         context.Sellers.Add(_seller);
+        context.Sales.AddRange(_sales);
         context.AppUsers.Add(_user);
         context.SaveChanges();
     }
