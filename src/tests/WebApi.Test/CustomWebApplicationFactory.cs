@@ -19,6 +19,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     private AppUser _user = default!;
     private string _password = string.Empty;
     private List<Sale> _sales = [];
+    private List<AccountReceivable> _accountsReceivable = [];
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -53,6 +54,8 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     public IReadOnlyList<Sale> GetSales() => _sales;
 
+    public IReadOnlyList<AccountReceivable> GetAccountsReceivable() => _accountsReceivable;
+
     public int GetProductCurrentStock()
     {
         using var scope = Services.CreateScope();
@@ -71,6 +74,8 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     private void StartDatabase(DesafioTargetSistemasDbContext context)
     {
+        var today = DateOnly.FromDateTime(DateTime.UtcNow);
+
         _product = ProductBuilder.Build();
         _seller = SellerBuilder.Build();
 
@@ -80,6 +85,18 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             SaleBuilder.Build(_seller, new DateTime(2026, 10, 20, 15, 30, 0, DateTimeKind.Utc), 300.00m)
         ];
 
+        var overdue = AccountReceivableBuilder.Build(today.AddDays(-4));
+        var dueToday = AccountReceivableBuilder.Build(today);
+        var future = AccountReceivableBuilder.Build(today.AddDays(10));
+
+        var paid = AccountReceivableBuilder.Build(today.AddDays(-8));
+        paid.PaymentDate = today.AddDays(-2);
+
+        _accountsReceivable = [overdue, dueToday, future, paid];
+
+        foreach (var account in _accountsReceivable)
+            account.Sale = _sales[0];
+
         _password = "SenhaDeTeste@123";
         _user = AppUserBuilder.Build();
         _user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(_password);
@@ -87,6 +104,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         context.Products.Add(_product);
         context.Sellers.Add(_seller);
         context.Sales.AddRange(_sales);
+        context.AccountReceivables.AddRange(_accountsReceivable);
         context.AppUsers.Add(_user);
         context.SaveChanges();
     }
