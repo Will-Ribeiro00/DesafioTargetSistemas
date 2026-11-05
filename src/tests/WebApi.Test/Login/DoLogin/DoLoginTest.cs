@@ -46,6 +46,25 @@ public class DoLoginTest : DesafioTargetSistemasClassFixture
         protectedResponse.StatusCode.ShouldBe(HttpStatusCode.OK);
     }
 
+    [Fact]
+    public async Task SuccessIgnoringInvalidToken()
+    {
+        // Arrange
+        var request = RequestLoginJsonBuilder.Build();
+        request.Email = _email;
+        request.Password = _password;
+
+        // Act
+        var response = await DoPost(METHOD, request, token: "tokenInvalido");
+
+        await using var responseBody = await response.Content.ReadAsStreamAsync();
+        var responseData = await JsonDocument.ParseAsync(responseBody);
+
+        // Assert
+        response.StatusCode.ShouldBe(HttpStatusCode.OK);
+        responseData.RootElement.GetProperty("accessToken").GetString().ShouldNotBeNullOrWhiteSpace();
+    }
+
     [Theory]
     [ClassData(typeof(CultureInlineDataTest))]
     public async Task ErrorUserNotFound(string culture)
