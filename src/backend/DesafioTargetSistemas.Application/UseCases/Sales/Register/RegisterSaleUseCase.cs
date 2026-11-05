@@ -10,7 +10,7 @@ using DesafioTargetSistemas.Exception.ExceptionsBase;
 
 namespace DesafioTargetSistemas.Application.UseCases.Sales.Register
 {
-    internal class RegisterSaleUseCase : IRegisterSaleUseCase
+    public class RegisterSaleUseCase : IRegisterSaleUseCase
     {
         private readonly ISellerRepository _sellerRepository;
         private readonly IProductRepository _productRepository;

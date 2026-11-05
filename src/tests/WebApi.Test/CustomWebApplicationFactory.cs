@@ -14,8 +14,10 @@ namespace WebApi.Test;
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     private readonly string _databaseName = Guid.NewGuid().ToString();
-    private readonly AppUser _user = new() { Id = 1, Email = "admin@test.com", UserType = "ADMIN" };
     private Product _product = default!;
+    private Seller _seller = default!;
+    private AppUser _user = default!;
+    private string _password = string.Empty;
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -38,6 +40,14 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     public string GetProductCode() => _product.Code;
 
+    public decimal GetProductPrice() => _product.Price;
+
+    public int GetSellerId() => _seller.Id;
+
+    public string GetUserEmail() => _user.Email;
+
+    public string GetUserPassword() => _password;
+
     public int GetProductCurrentStock()
     {
         using var scope = Services.CreateScope();
@@ -57,8 +67,15 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     private void StartDatabase(DesafioTargetSistemasDbContext context)
     {
         _product = ProductBuilder.Build();
+        _seller = SellerBuilder.Build();
+
+        _password = "SenhaDeTeste@123";
+        _user = AppUserBuilder.Build();
+        _user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(_password);
 
         context.Products.Add(_product);
+        context.Sellers.Add(_seller);
+        context.AppUsers.Add(_user);
         context.SaveChanges();
     }
 }
