@@ -16,4 +16,9 @@ public class ProductRepositoryBuilder
     {
         _repository.Setup(repository => repository.GetByCode(product.Code)).ReturnsAsync(product);
     }
+
+    public void GetAll(List<Product> products)
+    {
+        _repository.Setup(repository => repository.GetAll()).ReturnsAsync(products);
+    }
 }

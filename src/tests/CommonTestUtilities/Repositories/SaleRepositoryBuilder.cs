@@ -35,5 +35,10 @@ public class SaleRepositoryBuilder
             .ReturnsAsync(summaries);
     }
 
+    public void GetAll(List<Sale> sales)
+    {
+        _repository.Setup(repository => repository.GetAll()).ReturnsAsync(sales);
+    }
+
     public ISaleRepository Build() => _repository.Object;
 }

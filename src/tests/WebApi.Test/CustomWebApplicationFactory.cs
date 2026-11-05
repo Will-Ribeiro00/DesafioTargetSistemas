@@ -44,6 +44,8 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     public decimal GetProductPrice() => _product.Price;
 
+    public string GetProductDescription() => _product.Description;
+
     public int GetSellerId() => _seller.Id;
 
     public string GetUserEmail() => _user.Email;

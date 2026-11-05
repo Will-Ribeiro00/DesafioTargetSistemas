@@ -16,4 +16,9 @@ public class SellerRepositoryBuilder
     {
         _repository.Setup(repository => repository.GetById(seller.Id)).ReturnsAsync(seller);
     }
+
+    public void GetAll(List<Seller> sellers)
+    {
+        _repository.Setup(repository => repository.GetAll()).ReturnsAsync(sellers);
+    }
 }
