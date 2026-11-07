@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace DesafioTargetSistemas.API.Filters
 {
-    public class ExceptionFilter : IExceptionFilter
+    public class ExceptionFilter(ILogger<ExceptionFilter> logger) : IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {
@@ -22,8 +22,13 @@ namespace DesafioTargetSistemas.API.Filters
             context.Result = new ObjectResult(new ResponseErrorJson(exception.GetErrorMessages()));
         }
 
-        private static void ThrowUnknownException(ExceptionContext context)
+        private void ThrowUnknownException(ExceptionContext context)
         {
+            logger.LogError(context.Exception,
+                            "Unhandled exception on {Method} {Path}",
+                            context.HttpContext.Request.Method,
+                            context.HttpContext.Request.Path);
+
             context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
             context.Result = new ObjectResult(new ResponseErrorJson(ResourceMessageException.UNKNOWN_ERROR));
         }
