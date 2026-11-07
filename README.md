@@ -13,6 +13,12 @@
   <img alt="EF Core 10" src="https://img.shields.io/badge/EF%20Core-10-512BD4">
   <img alt="Azure SQL" src="https://img.shields.io/badge/Azure%20SQL-Database-0078D4?logo=microsoftazure&logoColor=white">
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=black">
+    <a href="https://github.com/Will-Ribeiro00/DesafioTargetSistemas/actions/workflows/tests.yml">
+    <img alt="Tests" src="https://github.com/Will-Ribeiro00/DesafioTargetSistemas/actions/workflows/tests.yml/badge.svg">
+  </a>
+  <a href="https://sonarcloud.io/summary/new_code?id=Will-Ribeiro00_DesafioTargetSistemas">
+    <img alt="Quality Gate" src="https://sonarcloud.io/api/project_badges/measure?project=Will-Ribeiro00_DesafioTargetSistemas&metric=alert_status">
+  </a>
 </p>
 
 <p align="center">
