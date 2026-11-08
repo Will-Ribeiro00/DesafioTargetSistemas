@@ -35,6 +35,25 @@
     cursor: not-allowed; 
 }
 
+.btn-sm {
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.btn-outline {
+    color: var(--accent);
+    font-weight: 600;
+    background: #fff;
+    border-color: var(--accent);
+}
+
+.btn-outline:hover {
+    color: #fff;
+    background: var(--accent);
+}
+
 .btn-link {
     min-height: 44px; 
     padding: 0 12px; 
@@ -158,4 +177,85 @@ tfoot td {
     padding: 32px; 
     text-align: center; 
     color: var(--muted); 
+}
+
+.dialog {
+    width: min(440px, calc(100% - 32px));
+    padding: 0;
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.dialog::backdrop {
+    background: rgba(31, 35, 40, 0.45);
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.dialog-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.dialog-close {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--ink);
+    background: none;
+    border: 0;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.dialog-close:hover {
+    color: var(--err-ink);
+    background: var(--err-bg);
+}
+
+.dialog-text {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.dialog-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+    margin: 0;
+    padding: 12px 16px;
+    background: var(--panel);
+    border-radius: var(--radius);
+}
+
+.dialog-details dt {
+    color: var(--muted);
+}
+
+.dialog-details dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
 }

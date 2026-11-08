@@ -41,13 +41,43 @@
               <th scope="col" class="num">Juros</th>
               <th scope="col" class="num">Total a receber</th>
               <th scope="col">Situação</th>
+              <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody id="receivables-body">
-            <tr><td colspan="7" class="empty">Carregando...</td></tr>
+            <tr><td colspan="8" class="empty">Carregando...</td></tr>
           </tbody>
         </table>
       </div>
+
+      <dialog id="payment-dialog" class="dialog" aria-labelledby="payment-dialog-title">
+        <form method="dialog" class="dialog-content">
+          <div class="dialog-header">
+            <h2 id="payment-dialog-title">Baixar conta</h2>
+            <button type="submit" value="cancel" class="dialog-close" aria-label="Fechar">X</button>
+          </div>
+
+          <p class="dialog-text">
+            Confira os dados antes de confirmar. O valor final é calculado na hora da baixa, com os juros do dia.
+          </p>
+
+          <dl class="dialog-details">
+            <dt>Venda</dt>
+            <dd id="payment-dialog-sale"></dd>
+
+            <dt>Data da baixa</dt>
+            <dd id="payment-dialog-date"></dd>
+
+            <dt>Total a receber</dt>
+            <dd id="payment-dialog-total"></dd>
+          </dl>
+
+          <div class="dialog-actions">
+            <button type="submit" value="cancel" class="btn">Cancelar</button>
+            <button type="submit" value="confirm" class="btn btn-primary">Confirmar baixa</button>
+          </div>
+        </form>
+      </dialog>
     </main>
   </div>
   
