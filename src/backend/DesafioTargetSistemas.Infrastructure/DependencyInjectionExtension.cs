@@ -28,7 +28,7 @@ namespace DesafioTargetSistemas.Infrastructure
 
             services.AddDbContext<DesafioTargetSistemasDbContext>(dbContextOption =>
             {
-                dbContextOption.UseSqlServer(connectionString);
+                dbContextOption.UseSqlServer(connectionString, sqlOptions => sqlOptions.EnableRetryOnFailure());
             });
         }
         private static void AddRepositories(IServiceCollection services)
