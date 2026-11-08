@@ -95,16 +95,23 @@ CREATE TABLE dbo.stock_movement (
     CONSTRAINT CK_stock_movement_sale_by_type CHECK (type <> 'IN' OR sale_id IS NULL)
 );
 
--- Atraso e juros NÃO ficam gravados: são calculados pela aplicação.
+-- Atraso e juros das contas em aberto NÃO ficam gravados: são calculados pela aplicação.
+-- Na baixa, o valor efetivamente pago (original + juros do dia) é gravado em paid_amount.
 CREATE TABLE dbo.account_receivable (
     id              INT IDENTITY(1,1) NOT NULL,
     sale_id         INT               NOT NULL,
     amount          DECIMAL(18,2)     NOT NULL,
     due_date        DATE              NOT NULL,
     payment_date    DATE              NULL,
+    paid_amount     DECIMAL(18,2)     NULL,
     CONSTRAINT PK_account_receivable      PRIMARY KEY (id),
     CONSTRAINT FK_account_receivable_sale FOREIGN KEY (sale_id) REFERENCES dbo.sale (id),
-    CONSTRAINT CK_account_receivable_amt  CHECK (amount >= 0)
+    CONSTRAINT CK_account_receivable_amt  CHECK (amount >= 0),
+    CONSTRAINT CK_account_receivable_paid_amount CHECK (paid_amount IS NULL OR paid_amount >= 0),
+    -- Data e valor de pagamento andam juntos: os dois vazios (em aberto) ou os dois preenchidos (paga)
+    CONSTRAINT CK_account_receivable_payment CHECK (
+        (payment_date IS NULL AND paid_amount IS NULL) OR
+        (payment_date IS NOT NULL AND paid_amount IS NOT NULL))
 );
 
 
