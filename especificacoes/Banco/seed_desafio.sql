@@ -227,7 +227,8 @@ UPDATE dbo.sale SET sale_date = @new_sale_date WHERE id = @sale_id;
 UPDATE dbo.stock_movement SET movement_date = @new_sale_date WHERE sale_id = @sale_id AND type = 'OUT';
 UPDATE dbo.account_receivable
 SET due_date = CAST(DATEADD(DAY, -5, SYSUTCDATETIME()) AS DATE),
-    payment_date = CAST(DATEADD(DAY, -6, SYSUTCDATETIME()) AS DATE)   -- pagou 1 dia antes do vencimento
+    payment_date = CAST(DATEADD(DAY, -6, SYSUTCDATETIME()) AS DATE),  -- pagou 1 dia antes do vencimento
+    paid_amount = amount                                              -- sem atraso, sem juros
 WHERE id = 5;
 
 SELECT @sale_id = sale_id FROM dbo.account_receivable WHERE id = 6;
@@ -236,14 +237,16 @@ UPDATE dbo.sale SET sale_date = @new_sale_date WHERE id = @sale_id;
 UPDATE dbo.stock_movement SET movement_date = @new_sale_date WHERE sale_id = @sale_id AND type = 'OUT';
 UPDATE dbo.account_receivable
 SET due_date = CAST(DATEADD(DAY, -8, SYSUTCDATETIME()) AS DATE),
-    payment_date = CAST(DATEADD(DAY, -2, SYSUTCDATETIME()) AS DATE)   -- pagou 6 dias atrasado
+    payment_date = CAST(DATEADD(DAY, -2, SYSUTCDATETIME()) AS DATE),  -- pagou 6 dias atrasado
+    paid_amount = amount + ROUND(amount * 0.025 * 6, 2)               -- 6 dias de juros
 WHERE id = 6;
 
 -- id 7: sale_date e due_date ficam como vieram do passo 9 (venda de hoje,
 -- vence daqui a 30 dias) — só ganha o pagamento, mostrando uma conta paga
 -- bem antes do vencimento.
 UPDATE dbo.account_receivable
-SET payment_date = CAST(SYSUTCDATETIME() AS DATE)
+SET payment_date = CAST(SYSUTCDATETIME() AS DATE),
+    paid_amount = amount                                              -- antes do vencimento, sem juros
 WHERE id = 7;
 GO
 
