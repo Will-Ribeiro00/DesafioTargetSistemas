@@ -1,6 +1,7 @@
 ﻿using CommonTestUtilities.Entities;
 using DesafioTargetSistemas.Domain.Entities;
 using DesafioTargetSistemas.Domain.Security.Tokens;
+using DesafioTargetSistemas.Domain.Services;
 using DesafioTargetSistemas.Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -58,6 +59,14 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     public IReadOnlyList<AccountReceivable> GetAccountsReceivable() => _accountsReceivable;
 
+    public AccountReceivable GetAccountReceivableFromDatabase(int id)
+    {
+        using var scope = Services.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<DesafioTargetSistemasDbContext>();
+
+        return context.AccountReceivables.AsNoTracking().Single(a => a.Id == id);
+    }
+
     public int GetProductCurrentStock()
     {
         using var scope = Services.CreateScope();
@@ -93,6 +102,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         var paid = AccountReceivableBuilder.Build(today.AddDays(-8));
         paid.PaymentDate = today.AddDays(-2);
+        paid.Amount = paid.Amount + InterestCalculator.Calculate(paid.Amount, InterestCalculator.DaysOverdue(paid.DueDate, paid.PaymentDate.Value));
 
         _accountsReceivable = [overdue, dueToday, future, paid];
 

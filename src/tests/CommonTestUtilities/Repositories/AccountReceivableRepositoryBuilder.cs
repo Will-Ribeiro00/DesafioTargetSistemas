@@ -16,4 +16,9 @@ public class AccountReceivableRepositoryBuilder
     {
         _repository.Setup(repository => repository.GetOpen()).ReturnsAsync(accounts);
     }
+
+    public void GetById(AccountReceivable account)
+    {
+        _repository.Setup(repository => repository.GetById(account.Id)).ReturnsAsync(account);
+    }
 }

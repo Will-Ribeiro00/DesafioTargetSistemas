@@ -25,6 +25,14 @@ public class DesafioTargetSistemasClassFixture : IClassFixture<CustomWebApplicat
         return await _httpClient.GetAsync(method);
     }
 
+    protected async Task<HttpResponseMessage> DoPatch(string method, string token = "", string culture = "en")
+    {
+        ChangeRequestCulture(culture);
+        AuthorizeRequest(token);
+
+        return await _httpClient.PatchAsync(method, content: null);
+    }
+
     private void AuthorizeRequest(string token)
     {
         if (string.IsNullOrWhiteSpace(token)) return;
