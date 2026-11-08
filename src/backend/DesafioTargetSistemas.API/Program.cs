@@ -1,15 +1,12 @@
+using Azure.Monitor.OpenTelemetry.AspNetCore;
 using DesafioTargetSistemas.API.Filters;
 using DesafioTargetSistemas.API.Middleware.Culture;
 using DesafioTargetSistemas.Application;
 using DesafioTargetSistemas.Communication.Responses;
 using DesafioTargetSistemas.Exception;
 using DesafioTargetSistemas.Infrastructure;
-using DesafioTargetSistemas.Infrastructure.Extensions;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
-using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +19,9 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+if (!string.IsNullOrWhiteSpace(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]))
+        builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 builder.Services.AddControllers(options => options.Filters.Add<ExceptionFilter>())
     .AddJsonOptions(o => o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
