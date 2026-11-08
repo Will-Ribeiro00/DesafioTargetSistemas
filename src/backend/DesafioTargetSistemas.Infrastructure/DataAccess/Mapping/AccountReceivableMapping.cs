@@ -27,6 +27,10 @@ namespace DesafioTargetSistemas.Infrastructure.DataAccess.Mapping
                 .HasColumnName("payment_date")
                 .HasColumnType("date");
 
+            builder.Property(x => x.PaidAmount)
+                .HasColumnName("paid_amount")
+                .HasColumnType("decimal(18,2)");
+
             builder.HasOne(x => x.Sale)
                 .WithMany(s => s.AccountsReceivable)
                 .HasForeignKey(x => x.SaleId)

@@ -17,5 +17,9 @@ namespace DesafioTargetSistemas.Infrastructure.DataAccess.Repositories
                 .ThenBy(a => a.Id)
                 .ToListAsync();
         }
+
+        public async Task<AccountReceivable?> GetById(int id) => await _dbContext.AccountReceivables.FirstOrDefaultAsync(a => a.Id == id);
+
+        public void Update(AccountReceivable accountReceivable) => _dbContext.AccountReceivables.Update(accountReceivable);
     }
 }

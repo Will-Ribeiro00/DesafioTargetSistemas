@@ -61,6 +61,24 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This account receivable has already been paid..
+        /// </summary>
+        public static string ACCOUNT_RECEIVABLE_ALREADY_PAID {
+            get {
+                return ResourceManager.GetString("ACCOUNT_RECEIVABLE_ALREADY_PAID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Account receivable not found..
+        /// </summary>
+        public static string ACCOUNT_RECEIVABLE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("ACCOUNT_RECEIVABLE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The description exceeds the maximum allowed length..
         /// </summary>
         public static string DESCRIPTION_TOO_LONG {
