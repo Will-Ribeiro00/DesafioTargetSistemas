@@ -11,6 +11,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.14" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.14" />
+	  
+	 <!-- Fixa uma versão corrigida do Pkcs, que chega pelo Microsoft.Data.SqlClient (via EF Core SqlServer).
+     Pode ser removido quando o SqlClient passar a trazer uma versão sem vulnerabilidade. -->
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
   </ItemGroup>
 
   <ItemGroup>
