@@ -20,7 +20,7 @@ let selectedAccount = null;
 
 async function loadReceivables() {
   try {
-    const accounts = await api("/accountsreceivable");
+    const accounts = await api("/accountsreceivable/open");
 
     if (accounts.length === 0) {
       tbody.innerHTML = `<tr><td colspan="8" class="empty">Nenhuma conta em aberto.</td></tr>`;
