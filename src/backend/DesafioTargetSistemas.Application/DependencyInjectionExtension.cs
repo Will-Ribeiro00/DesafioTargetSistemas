@@ -1,4 +1,5 @@
 ﻿using DesafioTargetSistemas.Application.UseCases.AccountsReceivable.GetOpen;
+using DesafioTargetSistemas.Application.UseCases.AccountsReceivable.GetPaid;
 using DesafioTargetSistemas.Application.UseCases.AccountsReceivable.Pay;
 using DesafioTargetSistemas.Application.UseCases.Login.DoLogin;
 using DesafioTargetSistemas.Application.UseCases.Products.GetAll;
@@ -28,6 +29,7 @@ namespace DesafioTargetSistemas.Application
             services.AddScoped<IGetSellerCommissionsUseCase, GetSellerCommissionsUseCase>();
             services.AddScoped<IGetSellersUseCase, GetSellersUseCase>();
             services.AddScoped<IGetAccountsReceivableUseCase, GetAccountsReceivableUseCase>();
+            services.AddScoped<IGetPaidAccountsReceivableUseCase, GetPaidAccountsReceivableUseCase>();
             services.AddScoped<IPayAccountReceivableUseCase, PayAccountReceivableUseCase>();
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         }

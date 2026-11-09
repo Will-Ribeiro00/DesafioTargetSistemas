@@ -18,6 +18,16 @@ namespace DesafioTargetSistemas.Infrastructure.DataAccess.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<AccountReceivable>> GetPaid()
+        {
+            return await _dbContext.AccountReceivables
+                .AsNoTracking()
+                .Where(a => a.PaymentDate != null)
+                .OrderByDescending(a => a.PaymentDate)
+                .ThenByDescending(a => a.Id)
+                .ToListAsync();
+        }
+
         public async Task<AccountReceivable?> GetById(int id) => await _dbContext.AccountReceivables.FirstOrDefaultAsync(a => a.Id == id);
 
         public void Update(AccountReceivable accountReceivable) => _dbContext.AccountReceivables.Update(accountReceivable);

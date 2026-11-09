@@ -1,4 +1,5 @@
 ﻿using DesafioTargetSistemas.Application.UseCases.AccountsReceivable.GetOpen;
+using DesafioTargetSistemas.Application.UseCases.AccountsReceivable.GetPaid;
 using DesafioTargetSistemas.Application.UseCases.AccountsReceivable.Pay;
 using DesafioTargetSistemas.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,15 @@ namespace DesafioTargetSistemas.API.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<ResponseAccountReceivableJson>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetOpen([FromServices] IGetAccountsReceivableUseCase useCase)
+        {
+            var response = await useCase.Execute();
+
+            return Ok(response);
+        }
+
+        [HttpGet("paid")]
+        [ProducesResponseType(typeof(List<ResponsePaidAccountReceivableItemJson>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetPaid([FromServices] IGetPaidAccountsReceivableUseCase useCase)
         {
             var response = await useCase.Execute();
 
