@@ -6,6 +6,7 @@ using DesafioTargetSistemas.Domain.Entities;
 using DesafioTargetSistemas.Domain.Enums;
 using DesafioTargetSistemas.Exception;
 using DesafioTargetSistemas.Exception.ExceptionsBase;
+using Moq;
 using Shouldly;
 
 namespace UseCase.Test.StockMovements.Register;
@@ -112,6 +113,33 @@ public class RegisterStockMovementUseCaseTest
         var exception = await act.ShouldThrowAsync<ErrorOnValidationException>();
         exception.GetErrorMessages().ShouldHaveSingleItem();
         exception.GetErrorMessages().ShouldContain(ResourceMessageException.INVALID_QUANTITY);
+    }
+
+    [Fact]
+    public async Task SuccessAfterConcurrencyConflict()
+    {
+        // Arrange
+        var product = ProductBuilder.Build();
+        var initialStock = product.CurrentStock;
+
+        var request = RequestRegisterStockMovementJsonBuilder.Build();
+        request.Code = product.Code;
+        request.Type = StockMovementType.In;
+
+        var productRepository = new ProductRepositoryBuilder();
+        productRepository.GetByCodeFromDatabase(product);
+
+        var unitOfWork = UnitOfWorkBuilder.BuildWithConflictOnFirstCommit();
+
+        var useCase = new RegisterStockMovementUseCase(productRepository.Build(), StockMovementRepositoryBuilder.Build(), unitOfWork.Object);
+
+        // Act
+        var result = await useCase.Execute(request);
+
+        // Assert
+        result.StockBalance.ShouldBe(initialStock + request.Quantity);
+        unitOfWork.Verify(u => u.Commit(), Times.Exactly(2));
+        unitOfWork.Verify(u => u.Discard(), Times.Once);
     }
 
     private static RegisterStockMovementUseCase CreateUseCase(Product? product = null)

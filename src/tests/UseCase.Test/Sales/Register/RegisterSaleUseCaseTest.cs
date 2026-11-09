@@ -8,6 +8,7 @@ using DesafioTargetSistemas.Domain.Enums;
 using DesafioTargetSistemas.Domain.Services;
 using DesafioTargetSistemas.Exception;
 using DesafioTargetSistemas.Exception.ExceptionsBase;
+using Moq;
 using Shouldly;
 
 namespace UseCase.Test.Sales.Register;
@@ -139,6 +140,46 @@ public class RegisterSaleUseCaseTest
         exception.GetErrorMessages().ShouldHaveSingleItem();
         exception.GetErrorMessages().ShouldContain(ResourceMessageException.SALE_ITEMS_REQUIRED);
         saleRepository.AddedSale.ShouldBeNull();
+    }
+
+    [Fact]
+    public async Task SuccessAfterConcurrencyConflict()
+    {
+        // Arrange
+        var seller = SellerBuilder.Build();
+
+        var request = RequestRegisterSaleJsonBuilder.Build();
+        request.SellerId = seller.Id;
+
+        var products = CreateProductsFor(request);
+
+        var sellerRepository = new SellerRepositoryBuilder();
+        sellerRepository.GetById(seller);
+
+        var productRepository = new ProductRepositoryBuilder();
+        foreach (var product in products)
+            productRepository.GetByCodeFromDatabase(product);
+
+        var saleRepository = new SaleRepositoryBuilder();
+        var unitOfWork = UnitOfWorkBuilder.BuildWithConflictOnFirstCommit();
+
+        var useCase = new RegisterSaleUseCase(sellerRepository.Build(), productRepository.Build(), saleRepository.Build(), unitOfWork.Object);
+
+        var expectedTotal = request.Items.Sum(i => i.Quantity * products.Single(p => p.Code == i.Code).Price);
+
+        // Act
+        var result = await useCase.Execute(request);
+
+        // Assert
+        result.TotalPrice.ShouldBe(expectedTotal);
+
+        var movements = saleRepository.AddedSale!.StockMovements.ToList();
+
+        for (var i = 0; i < products.Count; i++)
+            movements[i].StockBalance.ShouldBe(products[i].CurrentStock - request.Items[i].Quantity);
+
+        unitOfWork.Verify(u => u.Commit(), Times.Exactly(2));
+        unitOfWork.Verify(u => u.Discard(), Times.Once);
     }
 
     private static List<Product> CreateProductsFor(RequestRegisterSaleJson request)
