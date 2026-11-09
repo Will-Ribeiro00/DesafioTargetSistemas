@@ -102,7 +102,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         var paid = AccountReceivableBuilder.Build(today.AddDays(-8));
         paid.PaymentDate = today.AddDays(-2);
-        paid.Amount = paid.Amount + InterestCalculator.Calculate(paid.Amount, InterestCalculator.DaysOverdue(paid.DueDate, paid.PaymentDate.Value));
+        paid.PaidAmount = paid.Amount + InterestCalculator.Calculate(paid.Amount, InterestCalculator.DaysOverdue(paid.DueDate, paid.PaymentDate.Value));
 
         _accountsReceivable = [overdue, dueToday, future, paid];
 
