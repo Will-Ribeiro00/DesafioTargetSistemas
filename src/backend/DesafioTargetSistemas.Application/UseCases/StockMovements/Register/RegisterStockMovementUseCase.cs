@@ -1,4 +1,5 @@
-﻿using DesafioTargetSistemas.Communication.Requests;
+﻿using DesafioTargetSistemas.Application.Concurrency;
+using DesafioTargetSistemas.Communication.Requests;
 using DesafioTargetSistemas.Communication.Responses;
 using DesafioTargetSistemas.Domain.Entities;
 using DesafioTargetSistemas.Domain.Enums;
@@ -28,6 +29,19 @@ namespace DesafioTargetSistemas.Application.UseCases.StockMovements.Register
         {
             Validate(request);
 
+            return await ConcurrencyRetry.Execute(_unitOfWork, () => Register(request));
+        }
+
+        private static void Validate(RequestRegisterStockMovementJson request)
+        {
+            var result = new RegisterStockMovementValidator().Validate(request);
+
+            if (!result.IsValid)
+                throw new ErrorOnValidationException([.. result.Errors.Select(e => e.ErrorMessage)]);
+        }
+
+        private async Task<ResponseRegisteredStockMovementJson> Register(RequestRegisterStockMovementJson request)
+        {
             var product = await _productRepository.GetByCode(request.Code)
                 ?? throw new NotFoundException(ResourceMessageException.PRODUCT_NOT_FOUND);
 
@@ -60,14 +74,6 @@ namespace DesafioTargetSistemas.Application.UseCases.StockMovements.Register
                 Id = movement.Id,
                 StockBalance = newBalance
             };
-        }
-
-        private static void Validate(RequestRegisterStockMovementJson request)
-        {
-            var result = new RegisterStockMovementValidator().Validate(request);
-
-            if (!result.IsValid)
-                throw new ErrorOnValidationException([.. result.Errors.Select(e => e.ErrorMessage)]);
         }
     }
 }

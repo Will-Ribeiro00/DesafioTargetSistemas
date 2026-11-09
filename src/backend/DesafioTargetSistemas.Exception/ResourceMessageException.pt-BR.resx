@@ -123,6 +123,9 @@
   <data name="ACCOUNT_RECEIVABLE_NOT_FOUND" xml:space="preserve">
     <value>Conta a receber não encontrada.</value>
   </data>
+  <data name="CONCURRENCY_CONFLICT" xml:space="preserve">
+    <value>Os dados foram alterados por outra operação. Tente novamente.</value>
+  </data>
   <data name="DESCRIPTION_TOO_LONG" xml:space="preserve">
     <value>A descrição excede o tamanho máximo permitido.</value>
   </data>

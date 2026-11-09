@@ -123,6 +123,9 @@
   <data name="ACCOUNT_RECEIVABLE_NOT_FOUND" xml:space="preserve">
     <value>Account receivable not found.</value>
   </data>
+  <data name="CONCURRENCY_CONFLICT" xml:space="preserve">
+    <value>The data was changed by another operation. Please try again.</value>
+  </data>
   <data name="DESCRIPTION_TOO_LONG" xml:space="preserve">
     <value>The description exceeds the maximum allowed length.</value>
   </data>

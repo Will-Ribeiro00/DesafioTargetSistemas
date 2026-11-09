@@ -1,4 +1,5 @@
-﻿using DesafioTargetSistemas.Communication.Requests;
+﻿using DesafioTargetSistemas.Application.Concurrency;
+using DesafioTargetSistemas.Communication.Requests;
 using DesafioTargetSistemas.Communication.Responses;
 using DesafioTargetSistemas.Domain.Entities;
 using DesafioTargetSistemas.Domain.Enums;
@@ -33,6 +34,19 @@ namespace DesafioTargetSistemas.Application.UseCases.Sales.Register
         {
             Validate(request);
 
+            return await ConcurrencyRetry.Execute(_unitOfWork, () => Register(request));
+        }
+
+        private static void Validate(RequestRegisterSaleJson request)
+        {
+            var result = new RegisterSaleValidator().Validate(request);
+
+            if (!result.IsValid)
+                throw new ErrorOnValidationException([.. result.Errors.Select(e => e.ErrorMessage)]);
+        }
+
+        private async Task<ResponseRegisteredSaleJson> Register(RequestRegisterSaleJson request)
+        {
             var seller = await _sellerRepository.GetById(request.SellerId)
                 ?? throw new NotFoundException(ResourceMessageException.SELLER_NOT_FOUND);
 
@@ -95,14 +109,6 @@ namespace DesafioTargetSistemas.Application.UseCases.Sales.Register
                 CommissionPercentage = sale.CommissionPercentage,
                 CommissionAmount = sale.CommissionAmount
             };
-        }
-
-        private static void Validate(RequestRegisterSaleJson request)
-        {
-            var result = new RegisterSaleValidator().Validate(request);
-
-            if (!result.IsValid)
-                throw new ErrorOnValidationException([.. result.Errors.Select(e => e.ErrorMessage)]);
         }
     }
 }

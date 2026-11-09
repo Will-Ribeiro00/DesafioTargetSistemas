@@ -3,5 +3,6 @@
     public interface IUnitOfWork
     {
         Task Commit();
+        void Discard();
     }
 }

@@ -79,6 +79,15 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The data was changed by another operation. Please try again..
+        /// </summary>
+        public static string CONCURRENCY_CONFLICT {
+            get {
+                return ResourceManager.GetString("CONCURRENCY_CONFLICT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The description exceeds the maximum allowed length..
         /// </summary>
         public static string DESCRIPTION_TOO_LONG {

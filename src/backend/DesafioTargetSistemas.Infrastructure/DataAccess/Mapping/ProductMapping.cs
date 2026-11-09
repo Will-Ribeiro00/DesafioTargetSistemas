@@ -31,6 +31,10 @@ namespace DesafioTargetSistemas.Infrastructure.DataAccess.Mapping
             builder.Property(x => x.CurrentStock)
                 .HasColumnName("current_stock");
 
+            builder.Property(x => x.RowVersion)
+                .HasColumnName("row_version")
+                .IsRowVersion();
+
             builder.HasIndex(x => x.Code).IsUnique();
         }
     }

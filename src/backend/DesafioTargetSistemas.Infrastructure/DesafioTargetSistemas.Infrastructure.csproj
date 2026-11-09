@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DesafioTargetSistemas.Domain\DesafioTargetSistemas.Domain.csproj" />
+    <ProjectReference Include="..\DesafioTargetSistemas.Exception\DesafioTargetSistemas.Exception.csproj" />
   </ItemGroup>
 
 </Project>
