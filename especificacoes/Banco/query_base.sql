@@ -41,6 +41,7 @@ CREATE TABLE dbo.product (
     description     NVARCHAR(150)     NOT NULL,
     price           DECIMAL(18,2)     NOT NULL,
     current_stock   INT               NOT NULL CONSTRAINT DF_product_current_stock DEFAULT 0,
+    row_version     ROWVERSION        NOT NULL,   -- muda a cada UPDATE; usado para detectar alterações simultâneas
     CONSTRAINT PK_product       PRIMARY KEY (id),
     CONSTRAINT UQ_product_code  UNIQUE (code),
     CONSTRAINT CK_product_price CHECK (price >= 0),
