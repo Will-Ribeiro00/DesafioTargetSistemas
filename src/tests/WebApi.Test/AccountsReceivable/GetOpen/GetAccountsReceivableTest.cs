@@ -10,7 +10,7 @@ namespace WebApi.Test.AccountsReceivable.GetOpen;
 
 public class GetAccountsReceivableTest : DesafioTargetSistemasClassFixture
 {
-    private const string METHOD = "api/hml/accountsreceivable";
+    private const string METHOD = "api/hml/accountsreceivable/open";
 
     private readonly CustomWebApplicationFactory _factory;
     private readonly string _token;
