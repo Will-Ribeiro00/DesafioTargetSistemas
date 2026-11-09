@@ -259,3 +259,40 @@ tfoot td {
     justify-content: flex-end;
     gap: 12px;
 }
+
+.segmented {
+    display: inline-flex;
+    align-self: flex-start;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.segmented-option {
+    padding: 8px 16px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    background: #fff;
+    border: 0;
+    cursor: pointer;
+}
+
+.segmented-option + .segmented-option {
+    border-left: 1.5px solid var(--line);
+}
+
+.segmented-option:hover {
+    background: var(--panel);
+}
+
+.segmented-option[aria-pressed="true"] {
+    color: var(--accent-dark);
+    font-weight: 600;
+    background: var(--active);
+}
+
+.segmented-option:focus-visible {
+    outline-offset: -3px;
+}

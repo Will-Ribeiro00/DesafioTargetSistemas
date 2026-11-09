@@ -22,33 +22,65 @@
     <main class="content">
       <div>
         <h1>Contas a receber</h1>
-        
+      </div>
+
+      <div class="segmented" role="group" aria-label="Situação das contas">
+        <button type="button" class="segmented-option" data-view="open" aria-pressed="true">Em aberto</button>
+        <button type="button" class="segmented-option" data-view="paid" aria-pressed="false">Pagas</button>
+      </div>
+
+      <div id="alert" hidden></div>
+
+      <section id="open-view" class="view">
         <p class="subtitle">
           Em aberto, das mais antigas para as mais recentes. Juros de 2,5% ao dia sobre o valor, a partir do vencimento.
         </p>
-      </div>
-      
-      <div id="alert" hidden></div>
-      
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Venda</th>
-              <th scope="col">Vencimento</th>
-              <th scope="col" class="num">Valor</th>
-              <th scope="col" class="num">Dias de atraso</th>
-              <th scope="col" class="num">Juros</th>
-              <th scope="col" class="num">Total a receber</th>
-              <th scope="col">Situação</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="receivables-body">
-            <tr><td colspan="8" class="empty">Carregando...</td></tr>
-          </tbody>
-        </table>
-      </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Venda</th>
+                <th scope="col">Vencimento</th>
+                <th scope="col" class="num">Valor</th>
+                <th scope="col" class="num">Dias de atraso</th>
+                <th scope="col" class="num">Juros</th>
+                <th scope="col" class="num">Total a receber</th>
+                <th scope="col">Situação</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="receivables-body">
+              <tr><td colspan="8" class="empty">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="paid-view" class="view" hidden>
+        <p class="subtitle">
+          Pagas, das mais recentes para as mais antigas.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Venda</th>
+                <th scope="col">Vencimento</th>
+                <th scope="col" class="num">Valor</th>
+                <th scope="col">Pago em</th>
+                <th scope="col" class="num">Dias de atraso</th>
+                <th scope="col" class="num">Juros pagos</th>
+                <th scope="col" class="num">Valor pago</th>
+              </tr>
+            </thead>
+            <tbody id="paid-body">
+              <tr><td colspan="7" class="empty">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       <dialog id="payment-dialog" class="dialog" aria-labelledby="payment-dialog-title">
         <form method="dialog" class="dialog-content">
