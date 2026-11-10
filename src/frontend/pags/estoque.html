@@ -77,6 +77,38 @@
           <button type="submit" class="btn btn-primary" id="movement-button">Registrar</button>
         </form>
       </div>
+
+      <dialog id="movement-dialog" class="dialog" aria-labelledby="movement-dialog-title">
+        <form method="dialog" class="dialog-content">
+          <div class="dialog-header">
+            <h2 id="movement-dialog-title">Confirmar movimentação</h2>
+            <button type="submit" value="cancel" class="dialog-close" aria-label="Fechar">X</button>
+          </div>
+
+          <p class="dialog-text">
+            Confira os dados antes de confirmar. O saldo final é calculado na hora do registro.
+          </p>
+
+          <dl class="dialog-details">
+            <dt>Produto</dt>
+            <dd id="movement-dialog-product"></dd>
+
+            <dt>Tipo</dt>
+            <dd id="movement-dialog-type"></dd>
+
+            <dt>Quantidade</dt>
+            <dd id="movement-dialog-quantity"></dd>
+
+            <dt>Descrição</dt>
+            <dd id="movement-dialog-description"></dd>
+          </dl>
+
+          <div class="dialog-actions">
+            <button type="submit" value="cancel" class="btn">Cancelar</button>
+            <button type="submit" value="confirm" class="btn btn-primary">Confirmar</button>
+          </div>
+        </form>
+      </dialog>
     </main>
   </div>
   
