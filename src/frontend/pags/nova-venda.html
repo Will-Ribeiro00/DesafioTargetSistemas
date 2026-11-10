@@ -71,6 +71,39 @@
           </div>
         </div>
       </form>
+
+      <dialog id="sale-dialog" class="dialog" aria-labelledby="sale-dialog-title">
+        <form method="dialog" class="dialog-content">
+          <div class="dialog-header">
+            <h2 id="sale-dialog-title">Confirmar venda</h2>
+            <button type="submit" value="cancel" class="dialog-close" aria-label="Fechar">X</button>
+          </div>
+
+          <p class="dialog-text">
+            Confira os dados antes de confirmar. O total e a comissão são calculados na hora do registro,
+            com os preços atuais dos produtos.
+          </p>
+
+          <dl class="dialog-details">
+            <dt>Vendedor</dt>
+            <dd id="sale-dialog-seller"></dd>
+
+            <dt>Vencimento</dt>
+            <dd id="sale-dialog-due-date"></dd>
+
+            <dt>Itens</dt>
+            <dd id="sale-dialog-items"></dd>
+
+            <dt>Total</dt>
+            <dd id="sale-dialog-total"></dd>
+          </dl>
+
+          <div class="dialog-actions">
+            <button type="submit" value="cancel" class="btn">Cancelar</button>
+            <button type="submit" value="confirm" class="btn btn-primary">Confirmar venda</button>
+          </div>
+        </form>
+      </dialog>
     </main>
   </div>
   
