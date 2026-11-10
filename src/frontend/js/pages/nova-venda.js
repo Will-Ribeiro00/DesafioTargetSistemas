@@ -46,19 +46,19 @@ async function loadProducts() {
 }
 
 function productOptions() {
-  return products
-    .map((p) => `<option value="${escapeHtml(p.code)}">${escapeHtml(p.code)} — ${escapeHtml(p.description)}</option>`)
-    .join("");
+  return products.map((p) => new Option(`${p.code} — ${p.description}`, p.code));
 }
 
 function addItemRow() {
   const row = document.createElement("tr");
   row.innerHTML = `
-    <td><select class="item-product" aria-label="Produto">${productOptions()}</select></td>
+    <td><select class="item-product" aria-label="Produto"></select></td>
     <td><input class="item-quantity" type="number" min="1" value="1" aria-label="Quantidade"></td>
     <td class="num item-price"></td>
     <td class="num item-subtotal"></td>
     <td><button type="button" class="btn-link remove-item">Remover</button></td>`;
+
+  row.querySelector(".item-product").append(...productOptions());
 
   itemsBody.appendChild(row);
   updateRow(row);

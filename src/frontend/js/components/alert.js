@@ -5,10 +5,21 @@ export function showAlert(element, type, messages) {
 
   element.className = `alert alert-${type}`;
   element.setAttribute("role", type === "error" ? "alert" : "status");
-  element.innerHTML =
-    list.length === 1
-      ? escapeHtml(list[0])
-      : "<ul>" + list.map((m) => `<li>${escapeHtml(m)}</li>`).join("") + "</ul>";
+
+  if (list.length === 1) {
+    element.textContent = list[0];
+  } else {
+    const ul = document.createElement("ul");
+
+    for (const message of list) {
+      const li = document.createElement("li");
+      li.textContent = message;
+      ul.append(li);
+    }
+
+    element.replaceChildren(ul);
+  }
+
   element.hidden = false;
 }
 
