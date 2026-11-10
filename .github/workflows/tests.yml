@@ -4,7 +4,6 @@ on:
   push:
     branches: ["master"]
     paths-ignore:
-      - "src/frontend/**"
       - "especificacoes/**"
       - "**.md"
   pull_request:
@@ -18,17 +17,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "10.0.x"
 
-      - name: Restore
-        run: dotnet restore DesafioTargetSistemas.slnx
+      - name: Setup Java (required by the SonarScanner)
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Install SonarScanner for .NET
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Begin SonarCloud analysis
+        run: >
+          dotnet sonarscanner begin
+          /k:"Will-Ribeiro00_DesafioTargetSistemas"
+          /o:"will-ribeiro00"
+          /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          /d:sonar.host.url="https://sonarcloud.io"
+          /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml"
 
       - name: Build
-        run: dotnet build DesafioTargetSistemas.slnx --no-restore --configuration Release
+        run: dotnet build DesafioTargetSistemas.slnx --configuration Release
 
       - name: Test
-        run: dotnet test DesafioTargetSistemas.slnx --no-build --configuration Release --verbosity normal
+        run: >
+          dotnet test DesafioTargetSistemas.slnx --no-build --configuration Release
+          --collect:"XPlat Code Coverage;Format=opencover"
+
+      - name: End SonarCloud analysis
+        run: dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
