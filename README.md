@@ -13,11 +13,14 @@
   <img alt="EF Core 10" src="https://img.shields.io/badge/EF%20Core-10-512BD4">
   <img alt="Azure SQL" src="https://img.shields.io/badge/Azure%20SQL-Database-0078D4?logo=microsoftazure&logoColor=white">
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=black">
-  <a href="https://github.com/Will-Ribeiro00/DesafioTargetSistemas/actions/workflows/tests.yml">
-    <img alt="Tests" src="https://github.com/Will-Ribeiro00/DesafioTargetSistemas/actions/workflows/tests.yml/badge.svg">
-  </a>
   <a href="https://sonarcloud.io/summary/new_code?id=Will-Ribeiro00_DesafioTargetSistemas">
     <img alt="Quality Gate" src="https://sonarcloud.io/api/project_badges/measure?project=Will-Ribeiro00_DesafioTargetSistemas&metric=alert_status">
+  </a>
+  <a href="https://sonarcloud.io/summary/new_code?id=Will-Ribeiro00_DesafioTargetSistemas">
+    <img alt="Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=Will-Ribeiro00_DesafioTargetSistemas&metric=coverage">
+  </a>
+  <a href="https://github.com/Will-Ribeiro00/DesafioTargetSistemas/actions/workflows/tests.yml">
+    <img alt="Tests" src="https://github.com/Will-Ribeiro00/DesafioTargetSistemas/actions/workflows/tests.yml/badge.svg">
   </a>
 </p>
 
@@ -92,7 +95,7 @@ Registrar uma venda, portanto, é uma única transação que cria a venda, os it
 
 ```
 DesafioTargetSistemas/
-├── .github/workflows/         testes a cada push (tests.yml) e publicação do front (static.yml)
+├── .github/workflows/         testes e análise do SonarCloud a cada push (tests.yml) e publicação do front (static.yml)
 ├── especificacoes/            desafio, modelo do banco, scripts SQL e wireframe
 ├── src/
 │   ├── backend/               API em .NET 10 (DDD, 6 projetos)
@@ -302,6 +305,8 @@ São **170 testes**, em três projetos de teste e uma biblioteca compartilhada, 
 
 Os testes de API usam uma `WebApplicationFactory` que troca o SQL Server por um banco em memória, popula os dados de teste e gera tokens com o gerador da própria API. Eles rodam no ambiente `Test`, com o `appsettings.Test.json`, e não precisam de banco nem de configuração local.
 
+A cobertura é medida a cada execução do workflow, com o `coverlet`, e aparece no SonarCloud (o selo **Coverage**, no topo).
+
 Para rodar, na raiz do repositório:
 
 ```
@@ -310,9 +315,9 @@ dotnet test
 
 ## Integração contínua e qualidade
 
-- **Testes a cada push:** o workflow [`tests.yml`](.github/workflows/tests.yml) compila a solução e roda todos os testes no GitHub Actions a cada push e pull request na `master`. Commits que mexem só no front, nas especificações ou em arquivos `.md` não disparam o workflow, porque não mudam o back-end.
+- **Testes e análise a cada push:** o workflow [`tests.yml`](.github/workflows/tests.yml) compila a solução, roda todos os testes com cobertura e envia a análise ao SonarCloud a cada push e pull request na `master`. Commits que mexem só nas especificações ou em arquivos `.md` não disparam o workflow.
 - **Publicação do front:** o workflow [`static.yml`](.github/workflows/static.yml) publica a pasta `src/frontend` no GitHub Pages a cada push.
-- **Análise de código:** o SonarCloud analisa o repositório e aplica um Quality Gate (os selos no topo mostram o estado dos testes e da análise).
+- **Análise de código:** o SonarCloud analisa o código de `src` a cada execução do workflow, incluindo a cobertura dos testes do back-end, e aplica um Quality Gate. O front-end entra na análise de qualidade, mas fica fora do cálculo de cobertura, porque não tem testes automatizados.
 - **Dependências:** os pacotes estão atualizados dentro da família do .NET 10, sem vulnerabilidades conhecidas (`dotnet list package --vulnerable --include-transitive`).
 
 ## Banco de dados: scripts
