@@ -61,9 +61,13 @@ function openMovementDialog(event) {
     quantity: Number(document.getElementById("quantity").value),
   };
 
-  if (!movement.code) return showAlert(alertBox, "error", "Informe o código do produto.");
+  const errors = [];
+
+  if (!movement.code) errors.push("Informe o código do produto.");
   if (!Number.isInteger(movement.quantity) || movement.quantity < 1)
-    return showAlert(alertBox, "error", "Informe uma quantidade maior que zero.");
+    errors.push("Informe uma quantidade maior que zero.");
+
+  if (errors.length > 0) return showAlert(alertBox, "error", errors);
 
   const product = products.find((p) => p.code === movement.code);
 
