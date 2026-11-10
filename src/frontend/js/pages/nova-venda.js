@@ -113,9 +113,19 @@ function openSaleDialog(event) {
     })),
   };
 
-  if (!body.sellerId) return showAlert(alertBox, "error", "Selecione o vendedor.");
-  if (!body.dueDate) return showAlert(alertBox, "error", "Informe a data de vencimento.");
-  if (body.items.length === 0) return showAlert(alertBox, "error", "Adicione pelo menos um item.");
+  const errors = [];
+
+  if (!body.sellerId) errors.push("Selecione o vendedor.");
+  if (!body.dueDate) errors.push("Informe a data de vencimento.");
+  if (body.items.length === 0) errors.push("Adicione pelo menos um item.");
+
+  const codes = body.items.map((item) => item.code);
+  const duplicated = [...new Set(codes.filter((code, index) => codes.indexOf(code) !== index))];
+
+  if (duplicated.length > 0)
+    errors.push(`Produtos adicionados mais de uma vez: ${duplicated.join(", ")}. Use uma linha só para cada produto e ajuste a quantidade.`);
+
+  if (errors.length > 0) return showAlert(alertBox, "error", errors);
 
   const itemsCount = body.items.length;
 
