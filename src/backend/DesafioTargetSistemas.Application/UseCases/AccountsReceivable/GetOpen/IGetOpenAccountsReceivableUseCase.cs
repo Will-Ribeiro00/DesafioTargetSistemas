@@ -2,7 +2,7 @@
 
 namespace DesafioTargetSistemas.Application.UseCases.AccountsReceivable.GetOpen
 {
-    public interface IGetAccountsReceivableUseCase
+    public interface IGetOpenAccountsReceivableUseCase
     {
         Task<List<ResponseAccountReceivableJson>> Execute();
     }

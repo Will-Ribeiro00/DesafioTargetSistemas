@@ -4,7 +4,7 @@ using DesafioTargetSistemas.Domain.Services;
 
 namespace DesafioTargetSistemas.Application.UseCases.AccountsReceivable.GetOpen
 {
-    public class GetAccountsReceivableUseCase(IAccountReceivableRepository accountReceivableRepository) : IGetAccountsReceivableUseCase
+    public class GetOpenAccountsReceivableUseCase(IAccountReceivableRepository accountReceivableRepository) : IGetOpenAccountsReceivableUseCase
     {
         private readonly IAccountReceivableRepository _accountReceivableRepository = accountReceivableRepository;
 

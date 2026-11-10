@@ -7,7 +7,7 @@ using Shouldly;
 
 namespace UseCase.Test.AccountsReceivable.GetOpen;
 
-public class GetAccountsReceivableUseCaseTest
+public class GetOpenAccountsReceivableUseCaseTest
 {
     private static DateOnly Today => DateOnly.FromDateTime(DateTime.UtcNow);
 
@@ -58,11 +58,11 @@ public class GetAccountsReceivableUseCaseTest
         result.ShouldBeEmpty();
     }
 
-    private static GetAccountsReceivableUseCase CreateUseCase(List<AccountReceivable> accounts)
+    private static GetOpenAccountsReceivableUseCase CreateUseCase(List<AccountReceivable> accounts)
     {
         var repository = new AccountReceivableRepositoryBuilder();
         repository.GetOpen(accounts);
 
-        return new GetAccountsReceivableUseCase(repository.Build());
+        return new GetOpenAccountsReceivableUseCase(repository.Build());
     }
 }

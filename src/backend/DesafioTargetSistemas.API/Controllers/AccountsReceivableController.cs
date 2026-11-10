@@ -10,7 +10,7 @@ namespace DesafioTargetSistemas.API.Controllers
     {
         [HttpGet("open")]
         [ProducesResponseType(typeof(List<ResponseAccountReceivableJson>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetOpen([FromServices] IGetAccountsReceivableUseCase useCase)
+        public async Task<IActionResult> GetOpen([FromServices] IGetOpenAccountsReceivableUseCase useCase)
         {
             var response = await useCase.Execute();
 

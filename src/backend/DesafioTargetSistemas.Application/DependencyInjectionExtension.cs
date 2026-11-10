@@ -28,7 +28,7 @@ namespace DesafioTargetSistemas.Application
             services.AddScoped<IGetSalesUseCase, GetSalesUseCase>();
             services.AddScoped<IGetSellerCommissionsUseCase, GetSellerCommissionsUseCase>();
             services.AddScoped<IGetSellersUseCase, GetSellersUseCase>();
-            services.AddScoped<IGetAccountsReceivableUseCase, GetAccountsReceivableUseCase>();
+            services.AddScoped<IGetOpenAccountsReceivableUseCase, GetOpenAccountsReceivableUseCase>();
             services.AddScoped<IGetPaidAccountsReceivableUseCase, GetPaidAccountsReceivableUseCase>();
             services.AddScoped<IPayAccountReceivableUseCase, PayAccountReceivableUseCase>();
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();

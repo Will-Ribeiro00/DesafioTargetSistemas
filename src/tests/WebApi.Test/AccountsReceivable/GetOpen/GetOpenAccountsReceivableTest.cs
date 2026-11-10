@@ -8,14 +8,14 @@ using WebApi.Test.InlineData;
 
 namespace WebApi.Test.AccountsReceivable.GetOpen;
 
-public class GetAccountsReceivableTest : DesafioTargetSistemasClassFixture
+public class GetOpenAccountsReceivableTest : DesafioTargetSistemasClassFixture
 {
     private const string METHOD = "api/hml/accountsreceivable/open";
 
     private readonly CustomWebApplicationFactory _factory;
     private readonly string _token;
 
-    public GetAccountsReceivableTest(CustomWebApplicationFactory factory) : base(factory)
+    public GetOpenAccountsReceivableTest(CustomWebApplicationFactory factory) : base(factory)
     {
         _factory = factory;
         _token = factory.GetToken();
