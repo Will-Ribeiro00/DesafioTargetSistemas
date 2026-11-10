@@ -106,5 +106,5 @@ if (requireLogin()) {
   renderSidebar("estoque");
   form.addEventListener("submit", openMovementDialog);
   dialog.addEventListener("close", handleDialogClose);
-  loadProducts();
+  void loadProducts();
 }

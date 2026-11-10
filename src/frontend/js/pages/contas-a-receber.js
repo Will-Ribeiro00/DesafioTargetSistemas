@@ -107,9 +107,9 @@ function showView(view) {
   hideAlert(alertBox);
 
   if (view === "open") {
-    loadReceivables();
+    void loadReceivables();
   } else {
-    loadPaid();
+    void loadPaid();
   }
 }
 
@@ -154,5 +154,5 @@ if (requireLogin()) {
   tbody.addEventListener("click", openPaymentDialog);
   dialog.addEventListener("close", handleDialogClose);
   segmented.addEventListener("click", handleViewChange);
-  loadReceivables();
+  void loadReceivables();
 }

@@ -37,5 +37,5 @@ async function loadSales() {
 
 if (requireLogin()) {
   renderSidebar("vendas");
-  loadSales();
+  void loadSales();
 }

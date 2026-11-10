@@ -182,5 +182,5 @@ if (requireLogin()) {
   renderSidebar("nova-venda");
   form.addEventListener("submit", openSaleDialog);
   dialog.addEventListener("close", handleDialogClose);
-  init();
+  void init();
 }

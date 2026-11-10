@@ -17,7 +17,7 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 if (!string.IsNullOrWhiteSpace(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]))
-        builder.Services.AddOpenTelemetry().UseAzureMonitor();
+    builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 builder.Services.AddControllers(options => options.Filters.Add<ExceptionFilter>())
     .AddJsonOptions(o => o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
@@ -57,7 +57,7 @@ app.UseMiddleware<CultureMiddleware>();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
 
 public partial class Program
 {

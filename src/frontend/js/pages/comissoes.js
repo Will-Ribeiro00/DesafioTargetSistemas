@@ -62,16 +62,16 @@ async function loadCommissions() {
 
 document.getElementById("filter-form").addEventListener("submit", (event) => {
   event.preventDefault();
-  loadCommissions();
+  void loadCommissions();
 });
 
 document.getElementById("clear-filter").addEventListener("click", () => {
   fromInput.value = "";
   toInput.value = "";
-  loadCommissions();
+  void loadCommissions();
 });
 
 if (requireLogin()) {
   renderSidebar("comissoes");
-  loadCommissions();
+  void loadCommissions();
 }
