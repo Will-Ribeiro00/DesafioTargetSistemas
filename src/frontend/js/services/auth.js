@@ -25,3 +25,17 @@ export function requireLogin() {
   }
   return true;
 }
+
+export function getUserEmail() {
+  const token = getToken();
+  if (!token) return null;
+
+  try {
+    const payload = token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const claims = JSON.parse(atob(payload));
+
+    return claims.email ?? claims["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] ?? null;
+  } catch {
+    return null;
+  }
+}

@@ -27,6 +27,7 @@
   --gradient-primary: linear-gradient(90deg, #C80201, #E0540A);
   --gradient-primary-hover: linear-gradient(90deg, #A80101, #C24608);
   --gradient-table-hover: linear-gradient(90deg, #2A1F1C, #6B3216);
+  --gradient-primary-vertical: linear-gradient(180deg, #C80201, #E0540A);
 
   --radius: 6px;
 

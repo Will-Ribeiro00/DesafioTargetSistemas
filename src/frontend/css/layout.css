@@ -7,12 +7,12 @@
 .sidebar {
   flex: 1 1 220px;
   max-width: 260px;
-  padding: 24px 16px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  background: var(--panel);
-  border-right: 1.5px solid var(--line);
+  background: var(--surface-soft);
+  border-right: 1px solid var(--line);
 
   position: sticky;
   top: 0;
@@ -21,43 +21,96 @@
   overflow-y: auto;
 }
 
-.brand { 
-    padding: 0 12px 16px; 
-    font-size: 14px; 
-    font-weight: 600; 
-    color: var(--muted); 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4px 16px;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+}
+
+.brand-name {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .nav-link {
+  position: relative;
   min-height: 44px;
   display: flex;
   align-items: center;
-  padding: 0 12px;
+  gap: 12px;
+  padding: 0 12px 0 14px;
   border-radius: var(--radius);
-  color: var(--ink);
+  font-weight: 500;
+  color: var(--text-2);
   text-decoration: none;
 }
 
-.nav-link:hover { 
-    background: #e6e9ee; 
+.nav-link:hover {
+  color: var(--ink);
+  background: var(--surface);
 }
 
-.nav-link.active { 
-    background: var(--active); 
-    font-weight: 600; 
+.nav-link:hover .icon,
+.nav-link.active .icon {
+  color: var(--brand-orange);
 }
 
-.nav-spacer { 
-    flex-grow: 1; 
+.nav-link.active {
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--active);
 }
 
-.nav-logout { 
-    width: 100%; 
-    border: 0; 
-    background: none; 
-    font: inherit; 
-    text-align: left; 
-    cursor: pointer; 
+.nav-link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--gradient-primary-vertical);
+}
+
+.nav-spacer {
+  flex-grow: 1;
+}
+
+.nav-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.nav-user {
+  padding: 0 14px;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-logout {
+  width: 100%;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .content {
@@ -73,7 +126,7 @@
     .sidebar { 
         max-width: none; 
         border-right: 0; 
-        border-bottom: 1.5px solid var(--line); 
+        border-bottom: 1px solid var(--line); 
     }
     .content { 
         padding: 20px; 
