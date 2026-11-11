@@ -2,23 +2,41 @@
    Carregado em TODAS as páginas. */
 
 :root {
-  --ink: #1f2328;
-  --muted: #5b6470;
-  --head: #4a525d;
-  --line: #b8bec6;
-  --row-line: #dde0e4;
-  --panel: #f3f4f6;
-  --accent: #2f5d9e;
-  --accent-dark: #1f4378;
-  --active: #dfe6f1;
-  --input-line: #8b939e;
-  --err-bg: #fdecea;
-  --err-line: #b3392b;
-  --err-ink: #7a1f14;
-  --ok-bg: #e8f3ec;
-  --ok-line: #2d6a45;
-  --ok-ink: #1b4a2e;
+  --brand-red: #D50201;
+  --brand-orange: #E0540A;
+  --brand-cream: #FDF4E5;
+
+  --graphite: #2A1F1C;
+  --ink: #2A1A15;
+  --text-2: #5C4A43;
+  --muted: #8A7468;
+  --line: #EADFD3;
+  --line-strong: #D9C8B8;
+  --surface: #FFFFFF;
+  --surface-soft: #FBF7F2;
+  --active: #FFF1E6;
+
+  --ok-bg: #E5F2EA;
+  --ok-line: #2D6A45;
+  --ok-ink: #1B4A2E;
+  --err-bg: #F6E3E1;
+  --err-line: #C4473A;
+  --err-ink: #8A1C14;
+  --err-action: #B3392B;
+
+  --gradient-primary: linear-gradient(90deg, #C80201, #E0540A);
+  --gradient-primary-hover: linear-gradient(90deg, #A80101, #C24608);
+  --gradient-table-hover: linear-gradient(90deg, #2A1F1C, #6B3216);
+
   --radius: 6px;
+
+  /* Nomes antigos, apontando para as cores novas.*/
+  --head: var(--text-2);
+  --row-line: var(--line);
+  --panel: var(--surface-soft);
+  --input-line: var(--line-strong);
+  --accent: var(--graphite);
+  --accent-dark: var(--ink);
 }
 
 * { box-sizing: border-box; }
@@ -31,18 +49,33 @@ body {
   font-size: 15px;
   line-height: 1.4;
   color: var(--ink);
-  background: #fff;
+  background: var(--surface);
 }
 
-h1 { margin: 0; font-size: 28px; font-weight: 600; }
+h1 { 
+  margin: 0; 
+  font-size: 28px; 
+  font-weight: 600; 
+}
 
-h2 { margin: 0; font-size: 18px; font-weight: 600; }
+h2 { 
+  margin: 0; 
+  font-size: 18px; 
+  font-weight: 600; 
+}
 
-a { color: var(--accent); }
+a { color: var(--graphite); }
 
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+:focus-visible { 
+  outline: 3px solid var(--brand-orange); 
+  outline-offset: 2px; 
+}
 
 .sr-only {
-  position: absolute; width: 1px; height: 1px; overflow: hidden;
-  clip: rect(0 0 0 0); white-space: nowrap;
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  overflow: hidden;
+  clip: rect(0 0 0 0); 
+  white-space: nowrap;
 }
