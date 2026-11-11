@@ -13,8 +13,8 @@ const dialogTotal = document.getElementById("payment-dialog-total");
 const openView = document.getElementById("open-view");
 const paidView = document.getElementById("paid-view");
 const paidBody = document.getElementById("paid-body");
-const segmented = document.querySelector(".segmented");
-const viewButtons = document.querySelectorAll(".segmented-option");
+const tabs = document.querySelector(".tabs");
+const viewButtons = document.querySelectorAll(".tab");
 
 let selectedAccount = null;
 
@@ -153,6 +153,6 @@ if (requireLogin()) {
   renderSidebar("contas-a-receber");
   tbody.addEventListener("click", openPaymentDialog);
   dialog.addEventListener("close", handleDialogClose);
-  segmented.addEventListener("click", handleViewChange);
+  tabs.addEventListener("click", handleViewChange);
   void loadReceivables();
 }
