@@ -71,6 +71,12 @@
   border: 0;
 }
 
+.btn-text:hover {
+  background: none;
+  text-decoration-color: var(--brand-orange);
+  text-decoration-thickness: 2px;
+}
+
 .field {
   display: flex;
   flex-direction: column;

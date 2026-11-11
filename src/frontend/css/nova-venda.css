@@ -30,7 +30,7 @@
     justify-content: space-between;
     gap: 16px;
     padding-top: 16px;
-    border-top: 1.5px solid var(--line);
+    border-top: 1px solid var(--line);
 }
 
 .total {

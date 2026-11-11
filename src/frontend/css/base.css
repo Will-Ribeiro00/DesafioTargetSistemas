@@ -30,14 +30,6 @@
   --gradient-primary-vertical: linear-gradient(180deg, #C80201, #E0540A);
 
   --radius: 6px;
-
-  /* Nomes antigos, apontando para as cores novas.*/
-  --head: var(--text-2);
-  --row-line: var(--line);
-  --panel: var(--surface-soft);
-  --input-line: var(--line-strong);
-  --accent: var(--graphite);
-  --accent-dark: var(--ink);
 }
 
 * { box-sizing: border-box; }
