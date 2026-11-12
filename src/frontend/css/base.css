@@ -38,6 +38,7 @@
 
   color-scheme: light;
   --surface-login: var(--brand-cream);
+  --surface-hover: var(--surface);
 }
 
 :root[data-theme="dark"] {
@@ -66,6 +67,7 @@
   --err-action: #F08A7E;
 
   --gradient-table-hover: linear-gradient(90deg, #7A3A18, #B4501C);
+  --surface-hover: #2C211C;
 
   --surface-input: #211915;
   --surface-raised: #201814;

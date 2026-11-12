@@ -58,7 +58,7 @@
 
 .nav-link:hover {
   color: var(--ink);
-  background: var(--surface);
+  background: var(--surface-hover);
 }
 
 .nav-link:hover .icon,

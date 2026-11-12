@@ -99,6 +99,16 @@
   border-radius: var(--radius);
 }
 
+.field input::placeholder, td input::placeholder {
+  color: var(--muted);
+}
+
+.field input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-input) inset;
+  -webkit-text-fill-color: var(--ink);
+  caret-color: var(--ink);
+}
+
 .hint {
   font-size: 13px;
   color: var(--muted);
