@@ -1,4 +1,5 @@
 import { clearToken, getUserEmail } from "../services/auth.js";
+import { renderThemeToggle } from "./theme-toggle.js";
 
 const MENU = [
   { key: "vendas", href: "../pags/vendas.html", label: "Vendas", icon: "shopping-cart" },
@@ -39,4 +40,6 @@ export function renderSidebar(activeKey) {
     clearToken();
     window.location.replace("../index.html");
   });
+
+  renderThemeToggle(document.querySelector(".content"));
 }

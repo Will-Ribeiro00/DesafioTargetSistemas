@@ -312,6 +312,34 @@ tfoot td {
   mask: var(--icon) center / contain no-repeat;
 }
 
+.theme-toggle {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-soft);
+}
+
+.theme-toggle:hover .icon-moon {
+  background: #5B6E91;
+}
+
+.theme-toggle:hover .icon-sun {
+  background: linear-gradient(180deg, #F7C341, #E0540A);
+}
+
 .icon-shopping-cart { --icon: url("../img/icons/shopping-cart.svg"); }
 .icon-file-plus { --icon: url("../img/icons/file-plus.svg"); }
 .icon-package { --icon: url("../img/icons/package.svg"); }
@@ -320,3 +348,5 @@ tfoot td {
 .icon-sign-out { --icon: url("../img/icons/sign-out.svg"); }
 .icon-envelope { --icon: url("../img/icons/envelope.svg"); }
 .icon-lock-key { --icon: url("../img/icons/lock-key.svg"); }
+.icon-sun { --icon: url("../img/icons/sun.svg"); }
+.icon-moon { --icon: url("../img/icons/moon.svg"); }

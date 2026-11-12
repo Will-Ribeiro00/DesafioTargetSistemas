@@ -1,6 +1,9 @@
 import { api } from "../services/api.js";
 import { getToken, setToken } from "../services/auth.js";
 import { showAlert, hideAlert } from "../components/alert.js";
+import { renderThemeToggle } from "../components/theme-toggle.js";
+
+renderThemeToggle(document.body);
 
 if (getToken()) window.location.href = "pags/vendas.html";
 

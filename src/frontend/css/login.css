@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   background: var(--surface-login);
+  position: relative;
 }
 
 .login-card {
@@ -54,4 +55,9 @@
 .input-with-icon input {
   width: 100%;
   padding-left: 42px;
+}
+
+.login-page > .theme-toggle {
+  top: 20px;
+  right: 20px;
 }
