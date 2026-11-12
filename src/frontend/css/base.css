@@ -29,6 +29,11 @@
   --gradient-table-hover: linear-gradient(90deg, #2A1F1C, #6B3216);
   --gradient-primary-vertical: linear-gradient(180deg, #C80201, #E0540A);
 
+  --surface-input: var(--surface);
+  --surface-raised: var(--surface);
+  --shadow-dialog: 0 12px 32px rgba(0, 0, 0, 0.18);
+  --backdrop: rgba(31, 22, 20, 0.45);
+
   --radius: 6px;
 
   color-scheme: light;
@@ -61,6 +66,11 @@
   --err-action: #F08A7E;
 
   --gradient-table-hover: linear-gradient(90deg, #7A3A18, #B4501C);
+
+  --surface-input: #211915;
+  --surface-raised: #201814;
+  --shadow-dialog: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --backdrop: rgba(0, 0, 0, 0.6);
 }
 
 * { box-sizing: border-box; }
