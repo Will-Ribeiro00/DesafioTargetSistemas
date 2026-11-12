@@ -30,6 +30,37 @@
   --gradient-primary-vertical: linear-gradient(180deg, #C80201, #E0540A);
 
   --radius: 6px;
+
+  color-scheme: light;
+  --surface-login: var(--brand-cream);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --brand-red: #F0533F;
+  --brand-orange: #F2762A;
+
+  --graphite: #E9D9CA;
+  --ink: #F4EAE0;
+  --text-2: #D8C9BC;
+  --muted: #A8968A;
+  --line: #3A2C26;
+  --line-strong: #4C3B33;
+  --surface: #1A1310;
+  --surface-soft: #231A16;
+  --surface-login: #14100D;
+  --active: #33211A;
+
+  --ok-bg: #16291E;
+  --ok-line: #3F8A5C;
+  --ok-ink: #A9DDBD;
+  --err-bg: #3B1A16;
+  --err-line: #A9483C;
+  --err-ink: #F5B8AF;
+  --err-action: #F08A7E;
+
+  --gradient-table-hover: linear-gradient(90deg, #7A3A18, #B4501C);
 }
 
 * { box-sizing: border-box; }
