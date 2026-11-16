@@ -6,5 +6,6 @@
         public string Name { get; set; } = string.Empty;
 
         public ICollection<Sale> Sales { get; set; } = [];
+        public ICollection<Customer> Customers { get; set; } = [];
     }
 }

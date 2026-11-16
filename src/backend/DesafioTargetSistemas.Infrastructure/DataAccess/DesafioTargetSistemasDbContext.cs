@@ -12,6 +12,8 @@ namespace DesafioTargetSistemas.Infrastructure.DataAccess
         public DbSet<SaleItem> SalesItems { get; set; }
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<StockMovement> StockMovements { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerAddress> CustomerAddresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
