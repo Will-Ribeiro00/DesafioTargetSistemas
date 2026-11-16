@@ -25,6 +25,8 @@ DELETE FROM dbo.account_receivable;
 DELETE FROM dbo.stock_movement;
 DELETE FROM dbo.sale_item;
 DELETE FROM dbo.sale;
+DELETE FROM dbo.customer_address;
+DELETE FROM dbo.customer;
 DELETE FROM dbo.product;
 DELETE FROM dbo.seller;
 
@@ -32,6 +34,8 @@ DBCC CHECKIDENT ('dbo.account_receivable', RESEED, 0);
 DBCC CHECKIDENT ('dbo.stock_movement',     RESEED, 0);
 DBCC CHECKIDENT ('dbo.sale_item',          RESEED, 0);
 DBCC CHECKIDENT ('dbo.sale',               RESEED, 0);
+DBCC CHECKIDENT ('dbo.customer_address',   RESEED, 0);
+DBCC CHECKIDENT ('dbo.customer',           RESEED, 0);
 DBCC CHECKIDENT ('dbo.product',            RESEED, 0);
 DBCC CHECKIDENT ('dbo.seller',             RESEED, 0);
 GO
@@ -42,6 +46,33 @@ GO
    ===================================================================== */
 INSERT INTO dbo.seller (name) VALUES
     (N'João Silva'), (N'Maria Souza'), (N'Carlos Oliveira'), (N'Ana Lima');
+GO
+
+/* =====================================================================
+   2.1) CLIENTES E ENDEREÇOS (inventados — os jsons não trazem clientes)
+   Um ou dois clientes na carteira de cada vendedor. Documentos fictícios,
+   com dígitos verificadores válidos (um deles é CNPJ alfanumérico).
+   ===================================================================== */
+INSERT INTO dbo.customer (person_type, document, name, trade_name, state_registration, email, phone, seller_id) VALUES
+    ('J', '20250718000143', N'Mercado Bom Preço Ltda',      N'Mercado Bom Preço', '110042490114', 'compras@bompreco.example',        '1133224455',  (SELECT id FROM dbo.seller WHERE name = N'João Silva')),
+    ('J', '40765422000172', N'Empório São Jorge Ltda',      N'Empório São Jorge', 'ISENTO',       NULL,                              '11987654321', (SELECT id FROM dbo.seller WHERE name = N'João Silva')),
+    ('J', '21060819000114', N'Padaria Pão Dourado Ltda',    N'Pão Dourado',       NULL,           'contato@paodourado.example',      '1935421100',  (SELECT id FROM dbo.seller WHERE name = N'Maria Souza')),
+    ('F', '08765871472',    N'Marcos Antônio Pereira',      NULL,                 NULL,           NULL,                              '11976543210', (SELECT id FROM dbo.seller WHERE name = N'Maria Souza')),
+    ('J', '4NWRHRLZ000129', N'Farmácia Vida Saudável Ltda', N'Farmácia Vida',     NULL,           'financeiro@farmaciavida.example', '1532145566',  (SELECT id FROM dbo.seller WHERE name = N'Carlos Oliveira')),
+    ('J', '40470486000146', N'Supermercado Central Ltda',   N'Super Central',     '336112233110', 'compras@supercentral.example',    '1336547788',  (SELECT id FROM dbo.seller WHERE name = N'Ana Lima'));
+
+INSERT INTO dbo.customer_address (customer_id, zip_code, street, number, complement, district, city, state, is_default)
+SELECT c.id, v.zip_code, v.street, v.number, v.complement, v.district, v.city, v.state, v.is_default
+FROM (VALUES
+    ('20250718000143', '01310000', N'Avenida Paulista',     '1500', N'Loja 2', N'Bela Vista', N'São Paulo', 'SP', 1),
+    ('40765422000172', '03015000', N'Rua da Mooca',         '320',  NULL,      N'Mooca',      N'São Paulo', 'SP', 1),
+    ('21060819000114', '13015000', N'Rua Barão de Jaguara', '845',  NULL,      N'Centro',     N'Campinas',  'SP', 1),
+    ('08765871472',    '07010000', N'Rua Dom Pedro II',     NULL,   N'Casa 3', N'Centro',     N'Guarulhos', 'SP', 1),
+    ('4NWRHRLZ000129', '18010000', N'Rua XV de Novembro',   '210',  NULL,      N'Centro',     N'Sorocaba',  'SP', 1),
+    ('40470486000146', '11010000', N'Rua General Câmara',   '1020', NULL,      N'Centro',     N'Santos',    'SP', 1),
+    ('40470486000146', '11060000', N'Avenida Ana Costa',    '455',  N'Loja B', N'Gonzaga',    N'Santos',    'SP', 0)
+) v (document, zip_code, street, number, complement, district, city, state, is_default)
+JOIN dbo.customer c ON c.document = v.document;
 GO
 
 
@@ -87,8 +118,9 @@ GO
         (N'Ana Lima',  315.40)
     ) AS t (Vendedor, Valor)
 )
-INSERT INTO dbo.sale (seller_id, sale_date, total_price, commission_percentage, commission_amount)
+INSERT INTO dbo.sale (seller_id, customer_id, sale_date, total_price, commission_percentage, commission_amount)
 SELECT  s.id,
+        cli.id,
         DATEADD(MINUTE, -v.Seq, SYSUTCDATETIME()),   -- só para as vendas terem horários distintos
         v.Valor,
         pct.Percentage,
@@ -99,7 +131,19 @@ CROSS APPLY (
     SELECT CASE WHEN v.Valor < 100 THEN 0.00
                 WHEN v.Valor < 500 THEN 1.00
                 ELSE 5.00 END AS Percentage
-) pct;
+) pct
+-- Cliente: um da carteira do vendedor; com dois clientes, as vendas alternam entre eles
+CROSS APPLY (
+    SELECT carteira.id
+    FROM (
+        SELECT id,
+               ROW_NUMBER() OVER (ORDER BY id) - 1 AS posicao,
+               COUNT(*) OVER () AS quantidade
+        FROM dbo.customer
+        WHERE seller_id = s.id
+    ) carteira
+    WHERE carteira.posicao = v.Seq % carteira.quantidade
+) cli;
 GO
 
 
@@ -292,3 +336,14 @@ SELECT
 FROM dbo.account_receivable ar
 JOIN dbo.sale s ON s.id = ar.sale_id
 ORDER BY ar.id;
+
+-- Cada cliente com as suas vendas, e nenhuma venda sem cliente
+SELECT c.name AS cliente, s.name AS vendedor, COUNT(v.id) AS vendas
+FROM dbo.customer c
+JOIN dbo.seller s ON s.id = c.seller_id
+LEFT JOIN dbo.sale v ON v.customer_id = c.id
+GROUP BY c.name, s.name
+ORDER BY s.name, c.name;
+
+SELECT COUNT(*) AS VendasSemCliente FROM dbo.sale WHERE customer_id IS NULL;
+-- Esperado: 0
