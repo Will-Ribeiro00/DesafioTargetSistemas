@@ -79,11 +79,218 @@ namespace DesafioTargetSistemas.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The city is required..
+        /// </summary>
+        public static string ADDRESS_CITY_REQUIRED {
+            get {
+                return ResourceManager.GetString("ADDRESS_CITY_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The city must have at most 80 characters..
+        /// </summary>
+        public static string ADDRESS_CITY_TOO_LONG {
+            get {
+                return ResourceManager.GetString("ADDRESS_CITY_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The complement must have at most 60 characters..
+        /// </summary>
+        public static string ADDRESS_COMPLEMENT_TOO_LONG {
+            get {
+                return ResourceManager.GetString("ADDRESS_COMPLEMENT_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The district is required..
+        /// </summary>
+        public static string ADDRESS_DISTRICT_REQUIRED {
+            get {
+                return ResourceManager.GetString("ADDRESS_DISTRICT_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The district must have at most 80 characters..
+        /// </summary>
+        public static string ADDRESS_DISTRICT_TOO_LONG {
+            get {
+                return ResourceManager.GetString("ADDRESS_DISTRICT_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid state..
+        /// </summary>
+        public static string ADDRESS_INVALID_STATE {
+            get {
+                return ResourceManager.GetString("ADDRESS_INVALID_STATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The ZIP code must have 8 digits..
+        /// </summary>
+        public static string ADDRESS_INVALID_ZIP_CODE {
+            get {
+                return ResourceManager.GetString("ADDRESS_INVALID_ZIP_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The number must have at most 10 characters..
+        /// </summary>
+        public static string ADDRESS_NUMBER_TOO_LONG {
+            get {
+                return ResourceManager.GetString("ADDRESS_NUMBER_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The address is required..
+        /// </summary>
+        public static string ADDRESS_REQUIRED {
+            get {
+                return ResourceManager.GetString("ADDRESS_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The street is required..
+        /// </summary>
+        public static string ADDRESS_STREET_REQUIRED {
+            get {
+                return ResourceManager.GetString("ADDRESS_STREET_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The street must have at most 150 characters..
+        /// </summary>
+        public static string ADDRESS_STREET_TOO_LONG {
+            get {
+                return ResourceManager.GetString("ADDRESS_STREET_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The data was changed by another operation. Please try again..
         /// </summary>
         public static string CONCURRENCY_CONFLICT {
             get {
                 return ResourceManager.GetString("CONCURRENCY_CONFLICT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Trade name and state registration are only allowed for companies..
+        /// </summary>
+        public static string CUSTOMER_COMPANY_ONLY_FIELDS {
+            get {
+                return ResourceManager.GetString("CUSTOMER_COMPANY_ONLY_FIELDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A customer with this document is already registered..
+        /// </summary>
+        public static string CUSTOMER_DOCUMENT_ALREADY_REGISTERED {
+            get {
+                return ResourceManager.GetString("CUSTOMER_DOCUMENT_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The document is required..
+        /// </summary>
+        public static string CUSTOMER_DOCUMENT_REQUIRED {
+            get {
+                return ResourceManager.GetString("CUSTOMER_DOCUMENT_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The e-mail must have at most 150 characters..
+        /// </summary>
+        public static string CUSTOMER_EMAIL_TOO_LONG {
+            get {
+                return ResourceManager.GetString("CUSTOMER_EMAIL_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid CNPJ..
+        /// </summary>
+        public static string CUSTOMER_INVALID_CNPJ {
+            get {
+                return ResourceManager.GetString("CUSTOMER_INVALID_CNPJ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid CPF..
+        /// </summary>
+        public static string CUSTOMER_INVALID_CPF {
+            get {
+                return ResourceManager.GetString("CUSTOMER_INVALID_CPF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid person type..
+        /// </summary>
+        public static string CUSTOMER_INVALID_PERSON_TYPE {
+            get {
+                return ResourceManager.GetString("CUSTOMER_INVALID_PERSON_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The phone must have 10 or 11 digits..
+        /// </summary>
+        public static string CUSTOMER_INVALID_PHONE {
+            get {
+                return ResourceManager.GetString("CUSTOMER_INVALID_PHONE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The name is required..
+        /// </summary>
+        public static string CUSTOMER_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("CUSTOMER_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The name must have at most 150 characters..
+        /// </summary>
+        public static string CUSTOMER_NAME_TOO_LONG {
+            get {
+                return ResourceManager.GetString("CUSTOMER_NAME_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The state registration must have at most 20 characters..
+        /// </summary>
+        public static string CUSTOMER_STATE_REGISTRATION_TOO_LONG {
+            get {
+                return ResourceManager.GetString("CUSTOMER_STATE_REGISTRATION_TOO_LONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The trade name must have at most 150 characters..
+        /// </summary>
+        public static string CUSTOMER_TRADE_NAME_TOO_LONG {
+            get {
+                return ResourceManager.GetString("CUSTOMER_TRADE_NAME_TOO_LONG", resourceCulture);
             }
         }
         

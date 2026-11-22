@@ -123,8 +123,77 @@
   <data name="ACCOUNT_RECEIVABLE_NOT_FOUND" xml:space="preserve">
     <value>Account receivable not found.</value>
   </data>
+  <data name="ADDRESS_CITY_REQUIRED" xml:space="preserve">
+    <value>The city is required.</value>
+  </data>
+  <data name="ADDRESS_CITY_TOO_LONG" xml:space="preserve">
+    <value>The city must have at most 80 characters.</value>
+  </data>
+  <data name="ADDRESS_COMPLEMENT_TOO_LONG" xml:space="preserve">
+    <value>The complement must have at most 60 characters.</value>
+  </data>
+  <data name="ADDRESS_DISTRICT_REQUIRED" xml:space="preserve">
+    <value>The district is required.</value>
+  </data>
+  <data name="ADDRESS_DISTRICT_TOO_LONG" xml:space="preserve">
+    <value>The district must have at most 80 characters.</value>
+  </data>
+  <data name="ADDRESS_INVALID_STATE" xml:space="preserve">
+    <value>Invalid state.</value>
+  </data>
+  <data name="ADDRESS_INVALID_ZIP_CODE" xml:space="preserve">
+    <value>The ZIP code must have 8 digits.</value>
+  </data>
+  <data name="ADDRESS_NUMBER_TOO_LONG" xml:space="preserve">
+    <value>The number must have at most 10 characters.</value>
+  </data>
+  <data name="ADDRESS_REQUIRED" xml:space="preserve">
+    <value>The address is required.</value>
+  </data>
+  <data name="ADDRESS_STREET_REQUIRED" xml:space="preserve">
+    <value>The street is required.</value>
+  </data>
+  <data name="ADDRESS_STREET_TOO_LONG" xml:space="preserve">
+    <value>The street must have at most 150 characters.</value>
+  </data>
   <data name="CONCURRENCY_CONFLICT" xml:space="preserve">
     <value>The data was changed by another operation. Please try again.</value>
+  </data>
+  <data name="CUSTOMER_COMPANY_ONLY_FIELDS" xml:space="preserve">
+    <value>Trade name and state registration are only allowed for companies.</value>
+  </data>
+  <data name="CUSTOMER_DOCUMENT_ALREADY_REGISTERED" xml:space="preserve">
+    <value>A customer with this document is already registered.</value>
+  </data>
+  <data name="CUSTOMER_DOCUMENT_REQUIRED" xml:space="preserve">
+    <value>The document is required.</value>
+  </data>
+  <data name="CUSTOMER_EMAIL_TOO_LONG" xml:space="preserve">
+    <value>The e-mail must have at most 150 characters.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_CNPJ" xml:space="preserve">
+    <value>Invalid CNPJ.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_CPF" xml:space="preserve">
+    <value>Invalid CPF.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_PERSON_TYPE" xml:space="preserve">
+    <value>Invalid person type.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_PHONE" xml:space="preserve">
+    <value>The phone must have 10 or 11 digits.</value>
+  </data>
+  <data name="CUSTOMER_NAME_REQUIRED" xml:space="preserve">
+    <value>The name is required.</value>
+  </data>
+  <data name="CUSTOMER_NAME_TOO_LONG" xml:space="preserve">
+    <value>The name must have at most 150 characters.</value>
+  </data>
+  <data name="CUSTOMER_STATE_REGISTRATION_TOO_LONG" xml:space="preserve">
+    <value>The state registration must have at most 20 characters.</value>
+  </data>
+  <data name="CUSTOMER_TRADE_NAME_TOO_LONG" xml:space="preserve">
+    <value>The trade name must have at most 150 characters.</value>
   </data>
   <data name="DESCRIPTION_TOO_LONG" xml:space="preserve">
     <value>The description exceeds the maximum allowed length.</value>

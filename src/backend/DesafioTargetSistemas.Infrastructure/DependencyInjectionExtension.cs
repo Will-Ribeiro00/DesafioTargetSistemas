@@ -43,6 +43,8 @@ namespace DesafioTargetSistemas.Infrastructure
 
             services.AddScoped<IAppUserRepository, AppUserRepository>();
 
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
         private static void AddPasswordEncripter(IServiceCollection services)

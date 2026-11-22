@@ -123,8 +123,77 @@
   <data name="ACCOUNT_RECEIVABLE_NOT_FOUND" xml:space="preserve">
     <value>Conta a receber não encontrada.</value>
   </data>
+  <data name="ADDRESS_CITY_REQUIRED" xml:space="preserve">
+    <value>Informe a cidade.</value>
+  </data>
+  <data name="ADDRESS_CITY_TOO_LONG" xml:space="preserve">
+    <value>A cidade deve ter no máximo 80 caracteres.</value>
+  </data>
+  <data name="ADDRESS_COMPLEMENT_TOO_LONG" xml:space="preserve">
+    <value>O complemento deve ter no máximo 60 caracteres.</value>
+  </data>
+  <data name="ADDRESS_DISTRICT_REQUIRED" xml:space="preserve">
+    <value>Informe o bairro.</value>
+  </data>
+  <data name="ADDRESS_DISTRICT_TOO_LONG" xml:space="preserve">
+    <value>O bairro deve ter no máximo 80 caracteres.</value>
+  </data>
+  <data name="ADDRESS_INVALID_STATE" xml:space="preserve">
+    <value>UF inválida.</value>
+  </data>
+  <data name="ADDRESS_INVALID_ZIP_CODE" xml:space="preserve">
+    <value>O CEP deve ter 8 dígitos.</value>
+  </data>
+  <data name="ADDRESS_NUMBER_TOO_LONG" xml:space="preserve">
+    <value>O número deve ter no máximo 10 caracteres.</value>
+  </data>
+  <data name="ADDRESS_REQUIRED" xml:space="preserve">
+    <value>Informe o endereço.</value>
+  </data>
+  <data name="ADDRESS_STREET_REQUIRED" xml:space="preserve">
+    <value>Informe o logradouro.</value>
+  </data>
+  <data name="ADDRESS_STREET_TOO_LONG" xml:space="preserve">
+    <value>O logradouro deve ter no máximo 150 caracteres.</value>
+  </data>
   <data name="CONCURRENCY_CONFLICT" xml:space="preserve">
     <value>Os dados foram alterados por outra operação. Tente novamente.</value>
+  </data>
+  <data name="CUSTOMER_COMPANY_ONLY_FIELDS" xml:space="preserve">
+    <value>Nome fantasia e inscrição estadual só se aplicam a pessoa jurídica.</value>
+  </data>
+  <data name="CUSTOMER_DOCUMENT_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Já existe um cliente cadastrado com este documento.</value>
+  </data>
+  <data name="CUSTOMER_DOCUMENT_REQUIRED" xml:space="preserve">
+    <value>Informe o CPF ou o CNPJ.</value>
+  </data>
+  <data name="CUSTOMER_EMAIL_TOO_LONG" xml:space="preserve">
+    <value>O e-mail deve ter no máximo 150 caracteres.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_CNPJ" xml:space="preserve">
+    <value>CNPJ inválido.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_CPF" xml:space="preserve">
+    <value>CPF inválido.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_PERSON_TYPE" xml:space="preserve">
+    <value>Tipo de pessoa inválido.</value>
+  </data>
+  <data name="CUSTOMER_INVALID_PHONE" xml:space="preserve">
+    <value>O telefone deve ter 10 ou 11 dígitos.</value>
+  </data>
+  <data name="CUSTOMER_NAME_REQUIRED" xml:space="preserve">
+    <value>Informe o nome ou a razão social.</value>
+  </data>
+  <data name="CUSTOMER_NAME_TOO_LONG" xml:space="preserve">
+    <value>O nome deve ter no máximo 150 caracteres.</value>
+  </data>
+  <data name="CUSTOMER_STATE_REGISTRATION_TOO_LONG" xml:space="preserve">
+    <value>A inscrição estadual deve ter no máximo 20 caracteres.</value>
+  </data>
+  <data name="CUSTOMER_TRADE_NAME_TOO_LONG" xml:space="preserve">
+    <value>O nome fantasia deve ter no máximo 150 caracteres.</value>
   </data>
   <data name="DESCRIPTION_TOO_LONG" xml:space="preserve">
     <value>A descrição excede o tamanho máximo permitido.</value>
